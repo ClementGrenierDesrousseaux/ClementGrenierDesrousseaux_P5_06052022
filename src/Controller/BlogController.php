@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-class BlogController {
+class BlogController extends MasterController
+{
 
     public function index()
     {
