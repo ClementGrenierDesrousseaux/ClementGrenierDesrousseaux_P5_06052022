@@ -2,7 +2,8 @@
     "name": "cleme/clement-grenier-desrousseaux_p5_06052022",
     "autoload": {
         "psr-4": {
-            "Cleme\\ClementGrenierDesrousseauxP506052022\\": "src/"
+            "Router\\": "routes/",
+            "App\\" : "src/"
         }
     },
     "authors": [
