@@ -1,0 +1,78 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Page d'accueil {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+          rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+    <script src="public/js/script.js"></script>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-lg-1 col-md-2 bg-primary text-light">
+                <h2>Admin</h2>
+                <ul>
+                    <li><a href="../../admin/articles" class="text-decoration-none text-light">Accueil</a></li>
+                    <li>Articles</li>
+                    <li>Commentaires</li>
+                </ul>
+            </div>
+            <div class="col-lg-11 col-md-10">
+                {% for article in articles %}
+
+                    <div class="row mt-3 mb-3">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h4>{{article.Title}}</h4>
+                                        <p>{{article.Date}}</p>
+                                    </div>
+                                    <div class="mx-5 mt-3 mb-3">
+                                        <p>{{article.Chapo}}</p>
+                                    </div>
+                                    <div>
+                                        <p>{{ article.Description | raw }}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-8 mb-5">
+                        <form action="#">
+                            <div class="col-12 mb-5 form-outline">
+                                <label for="title" class="form-label">Titre</label>
+                                <input class="w-100 form-control" type="text" value="{{ article.Title }}">
+                            </div>
+
+                            <div class="col-12 mb-5 form-outline">
+                                <label for="title" class="form-label">Chapo</label>
+                                <textarea class="w-100 form-control" type="text">{{ article.Chapo }}</textarea>
+                            </div>
+
+                            <div class="col-12 mb-5 form-outline">
+                                <label for="title" class="form-label">Description</label>
+                                <textarea class="w-100 form-control" type="text">{{ article.Description }}</textarea>
+                            </div>
+
+                            <input type="submit" value="Valider les modifications" class="btn btn-primary btn-lg">
+                        </form>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
