@@ -40,7 +40,7 @@
         </div>
     </header>
 
-
+    {#    AFFICHAGE DE L'ARTICLE    #}
     <div class="container">
         <div class="raw">
             {% for article in articles %}
@@ -50,11 +50,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <h4>{{article.Title}}</h4>
-                                    <p>{{article.Date}}</p>
+                                    <h4>{{ article.Title }}</h4>
+                                    <p>{{ article.Date }}</p>
                                 </div>
                                 <div class="mx-5 mt-3 mb-3">
-                                    <p>{{article.Chapo}}</p>
+                                    <p>{{ article.Chapo }}</p>
                                 </div>
                                 <div>
                                     <p>{{ article.Description | raw }}</p>
@@ -71,20 +71,24 @@
             {% endfor %}
         </div>
 
+        {#    ZONE DE COMMENTAIRES    #}
 
-        <div class="raw">
+        <div class="raw d-flex justify-content-around mt-5">
+            {#    FORMULAIRE DE COMMENTAIRE    #}
             <div class="col-md-3 col-sm-12">
                 <h2 class="justify-content-center align-items-center d-flex">Contactez-nous</h2>
                 <div class="align-items-center justify-content-center d-flex">
                     <form>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Adresse email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp">
                         </div>
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nom/Prénom ou Pseudo</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp">
                         </div>
 
                         <div class="mb-3">
@@ -95,13 +99,17 @@
 
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Je ne suis pas un robot, promis !</label>
+                            <label class="form-check-label" for="exampleCheck1">Je ne suis pas un robot, promis
+                                !</label>
                         </div>
                         <button type="submit" class="btn btn-primary">Envoyer mon message</button>
                     </form>
                 </div>
             </div>
+            {#    AFFICHAGE DES COMMENTAIRES    #}
             <div class="col-md-6 col-sm-12">
+                <h2 class="justify-content-center align-items-center d-flex">Commentaires</h2>
+
                 {% for comment in comments %}
 
                     <div class="row mt-3 mb-3">
@@ -109,8 +117,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <h6>{{comment.Author}}</h6>
-                                        <p>{{comment.Date}}</p>
+                                        <h6>{{ comment.Author }}</h6>
+                                        <p>{{ comment.Date }}</p>
                                     </div>
                                     <div>
                                         <p>{{ comment.Description | raw }}</p>
@@ -125,6 +133,8 @@
         </div>
     </div>
 
+    {#    FOOTER    #}
+
     <div class="container-fluid bg-light">
         <footer class="container footer text-center d-flex justify-content-between align-items-center">
             <div class="col-2 ">
@@ -133,16 +143,18 @@
             <div class="col-8 d-flex align-items-center justify-content-center">
                 <ul class="list-inline mb-5">
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-linkedin"></i></a>
+                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i
+                                    class="icon-social-linkedin"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
+                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i
+                                    class="icon-social-twitter"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-github"></i></a>
+                        <a class="social-link rounded-circle text-white" href="#!"><i
+                                    class="icon-social-github"></i></a>
                     </li>
                 </ul>
-                <!--            <p class="text-muted small mb-0">Copyright &copy; Your Website 2022</p>-->
             </div>
             <div class="col-2">
                 <a href="admin">Accès Back Office</a>
