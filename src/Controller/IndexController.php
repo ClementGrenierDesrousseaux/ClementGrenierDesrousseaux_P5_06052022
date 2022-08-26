@@ -2,12 +2,17 @@
 
 namespace App\Controller;
 
+use mysqli;
+use PDO;
+
 
 /**
  *
  */
 class IndexController extends MasterController
 {
+
+
 
     /**
      * Focntion gérant la page d'accueil
@@ -19,7 +24,7 @@ class IndexController extends MasterController
     public function index()
     {
         $this->twig->display('index/index.html.twig', [
-            "articles" => $this->articles
+            "articles" => $this->articles,
         ]);
     }
 }
