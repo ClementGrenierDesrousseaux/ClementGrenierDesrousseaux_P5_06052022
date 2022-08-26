@@ -2,10 +2,19 @@
 
 namespace App\Controller;
 
+/**
+ *
+ */
 class AdminController extends MasterController
 {
 
-    // AFFICHAGE DE LA PAGE D'ACCUEIL ADMIN
+    /**
+     * Fonction gérant la home du back office
+     * @return void
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function adminIndex()
     {
         if (!isset($_SESSION['name'])) {
@@ -19,7 +28,14 @@ class AdminController extends MasterController
     }
 
 
-    // AFFICHAGE DE LA PAGE DES ARTICLES ADMIN
+
+    /**
+     * Fonction gérant la page des articles sur le BO
+     * @return void
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function adminArticles()
     {
         if (!isset($_SESSION['name'])) {
@@ -33,7 +49,13 @@ class AdminController extends MasterController
     }
 
 
-    // AFFICHAGE DE L'INTERFACE DE MODIFICATION D'UN ARTICLE SELON SON ID
+    /**
+     * Fonction gérant l'affichage d'un article dans le BO selon un paramètre donné
+     * @return void
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function adminArticleModify()
     {
         if (!isset($_SESSION['name'])) {

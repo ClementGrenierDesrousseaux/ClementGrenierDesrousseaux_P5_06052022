@@ -5,8 +5,14 @@ namespace App\Controller;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
+/**
+ *
+ */
 abstract class MasterController
 {
+    /**
+     * @var \string[][]
+     */
     public $articles = [
         "article 1" => [
             "Title" => "Design System : Composez plus vite que la lumiere",
@@ -47,6 +53,9 @@ Qu’est-ce qu’un clavier ?",
 
     ];
 
+    /**
+     * @var \string[][]
+     */
     public $oneArticle = [
         "article" => [
             "Title" => "Keyboards : et toi comment tu tapes ?",
@@ -71,6 +80,9 @@ Simple n’est-ce pas ? A un détail près, un clavier classique c’est 104 tou
         ],
     ];
 
+    /**
+     * @var \string[][]
+     */
     public $comments = [
         "comment 1" => [
             "Author" => "Clément Grenier--Desrousseaux",
@@ -100,9 +112,18 @@ Simple n’est-ce pas ? A un détail près, un clavier classique c’est 104 tou
     ];
 
 
+    /**
+     * @var FilesystemLoader
+     */
     private $loader;
+    /**
+     * @var Environment
+     */
     protected $twig;
 
+    /**
+     * Configure TWIG
+     */
     public function __construct()
     {
         $this->loader = new FilesystemLoader('../templates');

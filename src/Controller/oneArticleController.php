@@ -2,11 +2,20 @@
 
 namespace App\Controller;
 
+/**
+ *
+ */
 class oneArticleController extends MasterController
 {
 
 
-    // AFFICHAGE D'UN ARTICLE SPECIFIQUE SELON SON ID, AINSI QUE LES COMMENTAIRES LIES A CET ARTICLE
+    /**
+     * Fonction permettant d'afficher un seul article selon un paramètre donné
+     * @return void
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function index()
     {
         $this->twig->display('oneArticle/index.html.twig', [
