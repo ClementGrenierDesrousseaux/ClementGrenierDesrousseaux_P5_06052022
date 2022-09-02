@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\dataTest;
 use mysqli;
 use PDO;
 
@@ -23,24 +24,10 @@ class BddController extends MasterController
      */
     public function index()
     {
-
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-
-        $mysqli = new mysqli("localhost", "root", "root");
-        $version = $mysqli->server_info;
-
-        $affichage_test_statement = $db->prepare('SELECT * FROM affichage_test');
-        $affichage_test_statement->execute();
-        $affichage_test = $affichage_test_statement->fetchAll();
-
-
+        $affichage_test = new dataTest();
+        $data = $affichage_test->getDataTest();
         $this->twig->display('bdd/index.html.twig', [
-            "version" => $version,
-            "donnees" => $affichage_test
+            "donnees" => $data
         ]);
     }
 }
