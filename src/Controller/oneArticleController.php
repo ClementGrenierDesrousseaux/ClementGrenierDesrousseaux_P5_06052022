@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
+
 /**
  *
  */
@@ -16,10 +18,12 @@ class oneArticleController extends MasterController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index()
+    public function index($id)
     {
+        $article = new Article();
+        $oneArticle = $article->getOneArticle($id);
         $this->twig->display('oneArticle/index.html.twig', [
-            "articles" => $this->oneArticle,
+            "articles" => $oneArticle,
             "comments" => $this->comments
         ]);
     }

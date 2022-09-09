@@ -3,13 +3,13 @@
 {% block title %} Page d'accueil {% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
           rel="stylesheet"/>
 {% endblock %}
 
 {% block scripts %}
-    <script src="public/js/script.js"></script>
+    <script src="../../public/js/script.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 {% endblock %}
 
@@ -35,12 +35,26 @@
             </div>
             <div class="col-lg-10 col-md-9">
 
-                <div class="card mt-5" style="width: 18rem;">
-                    <div class="card-body">
-                        <h4 class="card-title text-center mb-4">Nombre d'articles</h4>
-                        <h5 class="card-text text-center">{{ articles | length }}</h5>
+                <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/articles/createValidation" method="get">
+                    <div class="form-group">
+                        <label for="articleTitle">Titre de l'article</label>
+                        <input type="text" class="form-control" id="articleTitle" aria-describedby="emailHelp"
+                               name="articleTitle">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="articleChapo">Chapo de l'article</label>
+                        <input type="text" class="form-control" id="articleChapo" name="articleChapo">
+                    </div>
+                    <div class="form-group">
+                        <label for="articleContent">Contenu de l'article</label>
+                        <input type="text" class="form-control" id="articleContent" name="articleContent">
+                    </div>
+                    <div class="form-group">
+                        <label for="articleAuthor">Auteur</label>
+                        <input type="text" class="form-control" id="articleAuthor" name="articleAuthor">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
 
             </div>
         </div>

@@ -3,13 +3,13 @@
 {% block title %} Page d'accueil {% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
           rel="stylesheet"/>
 {% endblock %}
 
 {% block scripts %}
-    <script src="public/js/script.js"></script>
+    <script src="../../public/js/script.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 {% endblock %}
 
@@ -34,13 +34,6 @@
                 </ul>
             </div>
             <div class="col-lg-10 col-md-9">
-
-                <div class="card mt-5" style="width: 18rem;">
-                    <div class="card-body">
-                        <h4 class="card-title text-center mb-4">Nombre d'articles</h4>
-                        <h5 class="card-text text-center">{{ articles | length }}</h5>
-                    </div>
-                </div>
 
             </div>
         </div>

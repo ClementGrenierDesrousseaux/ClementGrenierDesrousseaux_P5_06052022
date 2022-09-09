@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
+
 /**
  *
  */
@@ -17,8 +19,10 @@ class ListArticlesController extends MasterController
      */
     public function index()
     {
+        $article = new Article();
+        $articles = $article->getAllArticles();
         $this->twig->display('listArticles/index.html.twig', [
-            "articles" => $this->articles
+            "articles" => $articles
         ]);
     }
 }
