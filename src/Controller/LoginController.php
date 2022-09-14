@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+
 /**
  *
  */
@@ -16,11 +18,36 @@ class LoginController extends MasterController
      */
     public function index()
     {
-        if(isset($_SESSION['name'])) {
+        if (isset($_SESSION['name'])) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
             exit();
         } else {
-            $this->twig->display('login/index.html.twig');
+            $test = "A";
+
+            if (isset($_POST['userEmail']) && isset($_POST['userPassword'])) {
+
+                $user = new User();
+                $userIdentified = $user->checkPassword($_POST['userEmail'], $_POST['userPassword']);
+
+                if ($userIdentified == true) {
+                    $test = "TRUE";
+                } else {
+                    $test = "FALSE";
+                }
+
+                //$user = new User();
+                //$test = $user->getPassword($_POST['userEmail']);
+
+
+
+
+
+
+            }
+            $this->twig->display('login/index.html.twig', [
+                'test' => $test
+            ]);
+
         }
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Comment;
 
 /**
  *
@@ -26,5 +27,11 @@ class oneArticleController extends MasterController
             "articles" => $oneArticle,
             "comments" => $this->comments
         ]);
+    }
+
+    public function createComment()
+    {
+        $comment = new Comment();
+        $comment->createComment($_GET["commentAuthor"], $_GET["commentContent"], $_GET["idPost"]);
     }
 }

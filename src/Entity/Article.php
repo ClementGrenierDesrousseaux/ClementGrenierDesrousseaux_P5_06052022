@@ -18,7 +18,7 @@ class Article
         }
 
 
-        $articles_statement = $db->prepare('SELECT * FROM post ORDER BY date DESC');
+        $articles_statement = $db->prepare('SELECT * FROM post ORDER BY datePost DESC');
         $articles_statement->execute();
         $articles = $articles_statement->fetchAll();
 
@@ -34,7 +34,7 @@ class Article
         }
 
 
-        $articles_statement = $db->prepare('SELECT * FROM post WHERE id = ?');
+        $articles_statement = $db->prepare('SELECT * FROM post WHERE idPost = ?');
         $articles_statement->execute([$id]);
         $articles = $articles_statement->fetchAll();
 
@@ -66,7 +66,7 @@ class Article
             die('Erreur : ' . $e->getMessage());
         }
 
-        $sql = "UPDATE post SET title=?, chapo=?, content=? WHERE id=?";
+        $sql = "UPDATE post SET title=?, chapo=?, content=? WHERE idPost=?";
         $stmt= $db->prepare($sql);
         $stmt->execute([$title, $chapo, $content, $id]);
 
@@ -81,7 +81,7 @@ class Article
             die('Erreur : ' . $e->getMessage());
         }
 
-        $sql = "DELETE FROM post WHERE id=?";
+        $sql = "DELETE FROM post WHERE idPost=?";
         $stmt= $db->prepare($sql);
         $stmt->execute([$id]);
 
