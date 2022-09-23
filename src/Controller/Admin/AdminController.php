@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
+use App\Controller\MasterController;
 use App\Entity\Article;
 use App\Entity\Comment;
-use App\Entity\User;
 
 /**
  *
@@ -167,53 +167,6 @@ class AdminController extends MasterController
         }
 
     }
-
-
-    /*public function approuveComment()
-    {
-
-
-        if (!isset($_SESSION['email'])) {
-            header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
-            exit();
-        } else {
-
-            $comment = new Comment();
-
-            if ($_POST['approuve']) {
-                $response = $comment->approuveComment($_POST['idComment']);
-                $comments = $comment->getCommentsNonApprouved();
-                $this->twig->display('admin/comments.html.twig', [
-                    'response' => $response,
-                    'comments' => $comments
-                ]);
-            }
-        }
-
-    }
-
-    public function deleteComment()
-    {
-
-
-        if (!isset($_SESSION['email'])) {
-            header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
-            exit();
-        } else {
-
-            $comment = new Comment();
-
-            if ($_POST['delete']) {
-                $response = $comment->deleteComment($_POST['idComment']);
-                $comments = $comment->getCommentsNonApprouved();
-                $this->twig->display('admin/comments.html.twig', [
-                    'response' => $response,
-                    'comments' => $comments
-                ]);
-            }
-        }
-
-    }*/
 
     public function approuveOrDeleteComment()
     {
