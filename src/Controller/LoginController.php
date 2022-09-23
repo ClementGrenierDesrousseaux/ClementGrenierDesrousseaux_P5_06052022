@@ -18,7 +18,7 @@ class LoginController extends MasterController
      */
     public function index()
     {
-        if (isset($_SESSION['name'])) {
+        if (isset($_SESSION['email'])) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
             exit();
         } else {
@@ -29,8 +29,10 @@ class LoginController extends MasterController
                 $user = new User();
                 $userIdentified = $user->checkPassword($_POST['userEmail'], $_POST['userPassword']);
 
-                if ($userIdentified == true) {
+                if ($userIdentified) {
                     $test = "TRUE";
+                    $_SESSION["email"]=$_POST['userEmail'];
+                    header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
                 } else {
                     $test = "FALSE";
                 }

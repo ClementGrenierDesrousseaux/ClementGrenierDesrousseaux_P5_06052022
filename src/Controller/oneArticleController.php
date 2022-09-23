@@ -23,15 +23,25 @@ class oneArticleController extends MasterController
     {
         $article = new Article();
         $oneArticle = $article->getOneArticle($id);
+
+        $comment = new Comment();
+        $comments = $comment->getCommentsApprouved();
+        $this->twig->display('oneArticle/index.html.twig', [
+            "articles" => $oneArticle,
+            "comments" => $comments
+        ]);
+    }
+
+    public function createComment($id)
+    {
+        $article = new Article();
+        $oneArticle = $article->getOneArticle($id);
+        $comment = new Comment();
+        $comment->createComment($_POST["commentAuthor"], $_POST["commentEmail"], $_POST["commentContent"], $id);
+
         $this->twig->display('oneArticle/index.html.twig', [
             "articles" => $oneArticle,
             "comments" => $this->comments
         ]);
-    }
-
-    public function createComment()
-    {
-        $comment = new Comment();
-        $comment->createComment($_GET["commentAuthor"], $_GET["commentContent"], $_GET["idPost"]);
     }
 }

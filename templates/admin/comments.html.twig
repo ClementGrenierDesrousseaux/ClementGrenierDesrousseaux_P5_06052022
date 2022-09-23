@@ -36,13 +36,39 @@
                 </ul>
             </div>
             <div class="col-lg-10 col-md-9">
+                <p>{{ response }}</p>
 
-                <div class="card mt-5" style="width: 18rem;">
-                    <div class="card-body">
-                        <h4 class="card-title text-center mb-4">Nombre d'articles</h4>
-                        <h5 class="card-text text-center">{{ articles | length }}</h5>
-                    </div>
-                </div>
+                    {% for comment in comments %}
+
+                        <div class="row mt-3 mb-3">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h6>{{ comment.commentAuthor }}</h6>
+                                            <p>{{ comment.dateComment | date("d/m/Y")}}</p>
+                                        </div>
+                                        <div>
+                                            <p>{{ comment.commentContent | raw }}</p>
+                                        </div>
+                                        <div class="col-12">
+                                            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires" method="post">
+                                                <input type="text" value="{{ comment.idcomment }}" name="idComment">
+                                                <input type="submit" value="Valider le commentaire" name="button_submit">
+                                            </form>
+                                            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires" method="post">
+                                                <input type="text" value="{{ comment.idcomment }}" name="idComment">
+                                                <input type="submit" value="Supprimer le commentaire" name="button_submit">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
 
             </div>
         </div>

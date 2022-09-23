@@ -20,7 +20,16 @@ class RegisterController extends MasterController
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
             exit();
         } else {
+            if (isset($_POST['userEmail']) && isset($_POST['userPassword'])) {
 
+                $user = new User();
+                $options = [
+                    'cost' => 12,
+                ];
+                $password = password_hash($_POST['userPassword'], PASSWORD_BCRYPT, $options);
+                $user->createUser($_POST['userEmail'],$password);
+
+            }
             $this->twig->display('register/index.html.twig');
 
         }

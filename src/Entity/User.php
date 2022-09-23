@@ -41,25 +41,10 @@ class User
 
         if (password_verify($userPassword, $passwordHash['userPassword'])) {
             return true;
+
+
         } else {
             return false;
-
         }
-    }
-
-    public function getPassword($userEmail)
-    {
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-
-        $sql = "SELECT userPassword FROM user WHERE userEmail = ?";
-        $stmt= $db->prepare($sql);
-        $stmt->execute([$userEmail]);
-        $password = $stmt->fetch();
-
-        return $password;
     }
 }
