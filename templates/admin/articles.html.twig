@@ -1,0 +1,77 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Page d'accueil {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="public/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+          rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+    <script src="public/js/script.js"></script>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-lg-2 col-md-3 bg-primary text-light">
+                <h2 class="mt-2 d-flex justify-content-center text-center">Interface d'administration</h2>
+                <ul class="list-group bg-primary mt-5">
+                    <li class="list-group-item bg-primary"><a href="/ClementGrenierDesrousseaux_P5_06052022/admin"
+                                                              class="text-decoration-none text-light"><i
+                                    class="fa-solid fa-house mx-2"></i>Accueil</a></li>
+                    <li class="list-group-item bg-primary"><a
+                                href="/ClementGrenierDesrousseaux_P5_06052022/admin/articles"
+                                class="text-decoration-none text-light"><i class="fa-solid fa-newspaper mx-2"></i>Articles
+                        </a></li>
+
+                    <li class="list-group-item bg-primary"><a href="#" class="text-decoration-none text-light"><i
+                                    class="fa-solid fa-comments mx-2"></i>Commentaires</a></li>
+
+                </ul>
+            </div>
+            <div class="col-lg-10 col-md-9">
+
+                <div><a href="/ClementGrenierDesrousseaux_P5_06052022/admin/articles/create">Créer un article</a></div>
+
+                <div class="row mt-3 mb-3">
+                    <div class="col-12">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Titre</th>
+                                <th>Date</th>
+                                <th>Modifier</th>
+                                <th>Supprimer</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for article in articles %}
+                                <tr>
+                                    <th scope="row">{{ article.id }}</th>
+                                    <td>{{ article.title }}</td>
+                                    <td>{{ article.date | date('d/m/Y') }}</td>
+                                    <td>
+                                        <button><a href="/ClementGrenierDesrousseaux_P5_06052022/admin/article/{{ article.id }}">Modifier</a></button>
+                                    </td>
+                                    <td>
+                                        <button><a href="/ClementGrenierDesrousseaux_P5_06052022/admin/article/delete/{{ article.id }}">Supprimer</a></button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

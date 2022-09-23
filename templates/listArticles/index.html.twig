@@ -1,0 +1,98 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Page d'accueil {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="public/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+          rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+    <script src="public/js/script.js"></script>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+
+
+
+{% block body %}
+
+    <header>
+        <!--  Navigation  -->
+        <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+        <nav id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">Mon portefolio</li>
+                <li class="sidebar-nav-item"><a href="/ClementGrenierDesrousseaux_P5_06052022/">Accueil</a></li>
+                <li class="sidebar-nav-item"><a href="articles">Nos articles</a></li>
+                <li class="sidebar-nav-item"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center justify-content-center mt-3">
+                    <img src="public/asset/img/logo_transparent.png" alt="" class="w-25">
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center m-0">Nos articles</h2>
+        </div>
+
+        {% for article in articles %}
+
+            <div class="row mt-3 mb-3">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h4>{{article.titlePost}}</h4>
+                                <p>{{article.datePost}}</p>
+                            </div>
+                            <div>
+                                <p>{{article.chapoPost}}</p>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <a href="/ClementGrenierDesrousseaux_P5_06052022/{{ article.idPost }}">Lire l'article</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+    <div class="container-fluid bg-light">
+        <footer class="container footer text-center d-flex justify-content-between align-items-center">
+            <div class="col-2 ">
+                <a href="public/asset/pdf/cv.pdf">CV</a>
+            </div>
+            <div class="col-8 d-flex align-items-center justify-content-center">
+                <ul class="list-inline mb-5">
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-linkedin"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-github"></i></a>
+                    </li>
+                </ul>
+                <!--            <p class="text-muted small mb-0">Copyright &copy; Your Website 2022</p>-->
+            </div>
+            <div class="col-2">
+                <a href="admin"> Accès Back Office</a>
+            </div>
+        </footer>
+    </div>
+
+{% endblock %}

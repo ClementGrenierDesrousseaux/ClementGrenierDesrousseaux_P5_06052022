@@ -8,10 +8,10 @@
           rel="stylesheet"/>
 {% endblock %}
 
-    {% block scripts %}
+{% block scripts %}
         <script src="public/js/script.js"></script>
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    {% endblock %}
+{% endblock %}
 
 
 
@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex align-items-center justify-content-center mt-3">
-                    <img src="../../public/asset/img/logo_transparent.png" alt="" class="w-25">
+                    <img src="public/asset/img/logo_transparent.png" alt="" class="w-25">
                 </div>
 
             </div>
@@ -43,7 +43,7 @@
 
      <div class="container">
         <div class="row">
-            <h2>Nos derniers articles</h2>
+            <h2 class="text-center m-0">Nos derniers articles</h2>
         </div>
 
          {% for article in articles %}
@@ -53,14 +53,14 @@
                      <div class="card">
                          <div class="card-body">
                              <div class="d-flex align-items-center justify-content-between">
-                                 <h3>{{article.Title}}</h3>
-                                 <p>Date de l'article</p>
+                                 <h4>{{article.titlePost}}</h4>
+                                 <p>{{article.datePost}}</p>
                              </div>
                              <div>
-                                 <p>{{article.Description}}</p>
+                                 <p>{{article.chapoPost}}</p>
                              </div>
                              <div class="d-flex justify-content-end">
-                                 <a href="#">Lire l'article</a>
+                                 <a href="/ClementGrenierDesrousseaux_P5_06052022/article/{{ article.idPost }}">Lire l'article</a>
                              </div>
                          </div>
                      </div>
@@ -93,10 +93,35 @@
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Je ne suis pas un robot, promis !</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Envoyer mon message</button>
                 </form>
             </div>
         </div>
+    </div>
+
+    <div class="container-fluid bg-light">
+        <footer class="container footer text-center d-flex justify-content-between align-items-center">
+                <div class="col-2 ">
+                    <a href="public/asset/pdf/cv.pdf">CV</a>
+                </div>
+                <div class="col-8 d-flex align-items-center justify-content-center">
+                    <ul class="list-inline mb-5">
+                        <li class="list-inline-item">
+                            <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-linkedin"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-github"></i></a>
+                        </li>
+                    </ul>
+                    <!--            <p class="text-muted small mb-0">Copyright &copy; Your Website 2022</p>-->
+                </div>
+                <div class="col-2">
+                    <a href="admin"> Accès Back Office</a>
+                </div>
+        </footer>
     </div>
 
 {% endblock %}

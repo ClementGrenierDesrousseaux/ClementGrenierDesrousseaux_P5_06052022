@@ -1,0 +1,72 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Page d'accueil {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="public/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+          rel="stylesheet"/>
+{% endblock %}
+
+    {% block scripts %}
+        <script src="public/js/script.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    {% endblock %}
+
+
+
+
+{% block body %}
+
+    <header>
+        <!--  Navigation  -->
+        <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+        <nav id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">Mon portefolio</li>
+                <li class="sidebar-nav-item"><a href="">Accueil</a></li>
+                <li class="sidebar-nav-item"><a href="articles">Nos articles</a></li>
+                <li class="sidebar-nav-item"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center justify-content-center mt-3">
+                    <img src="../../public/asset/img/logo_transparent.png" alt="" class="w-25">
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 d-flex align-items-center justify-content-center flex-column w-100 h-100">
+                <h2 class="mb-5">Page de connexion au Back-Office</h2>
+                <form action="/ClementGrenierDesrousseaux_P5_06052022/login" method="post">
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" id="form2Example1" class="form-control" name="userEmail"/>
+                        <label class="form-label" for="form2Example1">Email address</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="form2Example2" class="form-control" name="userPassword"/>
+                        <label class="form-label" for="form2Example2">Password</label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
