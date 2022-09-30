@@ -21,7 +21,8 @@ class AdminController extends MasterController
      */
     public function adminIndex()
     {
-        if (!isset($_SESSION['email'])) {
+        $sessionMail = $_SESSION['email'];
+        if (!isset($sessionMail)) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
@@ -43,7 +44,8 @@ class AdminController extends MasterController
      */
     public function adminArticles()
     {
-        if (!isset($_SESSION['email'])) {
+        $sessionMail = $_SESSION['email'];
+        if (!isset($sessionMail)) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
@@ -63,18 +65,20 @@ class AdminController extends MasterController
 
     public function disconnectUser()
     {
-        if (!isset($_SESSION['email'])) {
+        $sessionMail = $_SESSION['email'];
+        if (!isset($sessionMail)) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
-            unset($_SESSION["email"]);
+            unset($sessionMail);
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
         }
     }
 
     public function getCommentsNonApprouved()
     {
-        if (!isset($_SESSION['email'])) {
+        $sessionMail = $_SESSION['email'];
+        if (!isset($sessionMail)) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
@@ -88,11 +92,13 @@ class AdminController extends MasterController
 
     public function approuveOrDeleteComment()
     {
-        if (!isset($_SESSION['email'])) {
+        $sessionMail = $_SESSION['email'];
+        if (!isset($sessionMail)) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
-            switch ($_REQUEST['button_submit']) {
+            $valueSubmit = $_REQUEST['button_submit'];
+            switch ($valueSubmit) {
                 case 'Valider le commentaire':
                     $comment = new Comment();
                     $response = $comment->approuveComment($_POST['idComment']);

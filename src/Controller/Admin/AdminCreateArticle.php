@@ -14,14 +14,19 @@ class AdminCreateArticle extends \App\Controller\MasterController
      */
     public function index()
     {
-        if (!isset($_SESSION['email'])) {
+        $sessionMail = $_SESSION['email'];
+        if (!isset($sessionMail)) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
+            $postTitle = $_POST["articleTitle"];
+            $postChapo = $_POST["articleChapo"];
+            $postContent = $_POST["articleContent"];
+            $postAuthor = $_POST["articleAuthor"];
 
-            if (isset($_POST["articleTitle"]) && isset($_POST["articleChapo"]) && isset($_POST["articleContent"]) && isset($_POST["articleAuthor"])) {
+            if (isset($postTitle) && isset($postChapo) && isset($postContent) && isset($postAuthor)) {
                 $article = new Article();
-                $result = $article->createArticle($_POST["articleTitle"], $_POST["articleChapo"], $_POST["articleContent"], $_POST["articleAuthor"]);
+                $result = $article->createArticle($postTitle, $postChapo, $postContent, $postAuthor);
 
                 $this->twig->display('admin/articleCreate.html.twig', [
                     'result' => $result
@@ -29,10 +34,6 @@ class AdminCreateArticle extends \App\Controller\MasterController
             } else {
                 $this->twig->display('admin/articleCreate.html.twig');
             }
-
-
-
-
         }
     }
 }

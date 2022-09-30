@@ -14,19 +14,24 @@ class AdminArticleModify extends MasterController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index($id)
+    public function index($articleIdentifier): void
     {
-        if (!isset($_SESSION['email'])) {
+        $sessionMail = $_SESSION['email'];
+        if (!isset($sessionMail)) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
 
-            $articles = new Article();
-            $article = $articles->getOneArticle($id);
+            $postTitle = $_POST["articleTitle"];
+            $postChapo = $_POST["articleChapo"];
+            $postContent = $_POST["articleContent"];
 
-            if (isset($_POST["articleTitle"]) && isset($_POST["articleChapo"]) && isset($_POST["articleContent"])) {
-                $articles->updateArticle($id, $_POST["articleTitle"], $_POST["articleChapo"], $_POST["articleContent"]);
-                $article = $articles->getOneArticle($id);
+            $articles = new Article();
+            $article = $articles->getOneArticle($articleIdentifier);
+
+            if (isset($postTitle) && isset($postChapo) && isset($postContent)) {
+                $articles->updateArticle($articleIdentifier, $postTitle, $postChapo, $postContent);
+                $article = $articles->getOneArticle($articleIdentifier);
             }
 
             $this->twig->display('admin/articleModify.html.twig', [

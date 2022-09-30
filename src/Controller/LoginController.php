@@ -18,38 +18,23 @@ class LoginController extends MasterController
      */
     public function index()
     {
-        if (isset($_SESSION['email'])) {
+        $sessionMail = $_SESSION['email'];
+
+        if (isset($sessionMail)) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
             exit();
         } else {
-            $test = "A";
-
-            if (isset($_POST['userEmail']) && isset($_POST['userPassword'])) {
-
+            $userEmail = $_POST['userEmail'];
+            $userPassword = $_POST['userPassword'];
+            if (isset($userEmail) && isset($userPassword)) {
                 $user = new User();
-                $userIdentified = $user->checkPassword($_POST['userEmail'], $_POST['userPassword']);
-
+                $userIdentified = $user->checkPassword($userEmail, $userPassword);
                 if ($userIdentified) {
-                    $test = "TRUE";
-                    $_SESSION["email"]=$_POST['userEmail'];
+                    $_SESSION["email"] = $_POST['userEmail'];
                     header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
-                } else {
-                    $test = "FALSE";
                 }
-
-                //$user = new User();
-                //$test = $user->getPassword($_POST['userEmail']);
-
-
-
-
-
-
             }
-            $this->twig->display('login/index.html.twig', [
-                'test' => $test
-            ]);
-
+            $this->twig->display('login/index.html.twig');
         }
     }
 }
