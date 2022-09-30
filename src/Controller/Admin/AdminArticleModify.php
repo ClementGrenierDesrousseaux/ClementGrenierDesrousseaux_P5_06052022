@@ -24,7 +24,6 @@ class AdminArticleModify extends MasterController
             $articles = new Article();
             $article = $articles->getOneArticle($id);
 
-
             if (isset($_POST["articleTitle"]) && isset($_POST["articleChapo"]) && isset($_POST["articleContent"])) {
                 $articles->updateArticle($id, $_POST["articleTitle"], $_POST["articleChapo"], $_POST["articleContent"]);
                 $article = $articles->getOneArticle($id);
