@@ -22,7 +22,7 @@ class Comment
         return "Le commentaire a bien été créé !";
     }
 
-    public function getCommentsApprouved()
+    public function getCommentsApprouved($id)
     {
         try {
             $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
@@ -31,8 +31,8 @@ class Comment
         }
 
 
-        $comment_statement = $db->prepare('SELECT * FROM comment WHERE isApprouved = 1 ORDER BY dateComment DESC');
-        $comment_statement->execute();
+        $comment_statement = $db->prepare('SELECT * FROM comment WHERE isApprouved = 1 AND idPost = ? ORDER BY dateComment DESC');
+        $comment_statement->execute([$id]);
         $comments = $comment_statement->fetchAll();
 
         return $comments;

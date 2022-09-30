@@ -1,17 +1,6 @@
 {% extends "baseAdmin.html.twig" %}
 
-{% block title %} Page d'accueil {% endblock %}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="../../public/css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
-          rel="stylesheet"/>
-{% endblock %}
-
-{% block scripts %}
-    <script src="public/js/script.js"></script>
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-{% endblock %}
+{% block title %} Modifier un article {% endblock %}
 
 {% block content %}
 
@@ -22,14 +11,14 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
-                            <h4>{{ article.title }}</h4>
-                            <p>{{ article.date }}</p>
+                            <h4>{{ article.titlePost }}</h4>
+                            <p>{{ article.datePost }}</p>
                         </div>
                         <div class="mx-5 mt-3 mb-3">
-                            <p>{{ article.chapo }}</p>
+                            <p>{{ article.chapoPost }}</p>
                         </div>
                         <div>
-                            <p>{{ article.content | raw }}</p>
+                            <p>{{ article.contentPost | raw }}</p>
                         </div>
 
                     </div>
@@ -38,31 +27,22 @@
         </div>
 
 
-        <div class="col-8 mb-5">
-            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/articleModifyValidation" method="get">
-                <div class="col-12 mb-5 form-outline">
-                    <label for="title" class="form-label">ID</label>
-                    <input class="w-100 form-control" type="text" value="{{ article.id }}" name="articleId" readonly>
+        <div class="">
+            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/article/{{ article.idPost }}" method="post">
+                <div class="">
+                    <label for="title" class="">Titre</label>
+                    <input class="" type="text" value="{{ article.titlePost }}" name="articleTitle">
                 </div>
-
-                <div class="col-12 mb-5 form-outline">
-                    <label for="title" class="form-label">Titre</label>
-                    <input class="w-100 form-control" type="text" value="{{ article.title }}" name="articleTitle">
+                <div class="">
+                    <label for="title" class="">Chapo</label>
+                    <textarea class="" type="text" name="articleChapo">{{ article.chapoPost }}</textarea>
                 </div>
-
-                <div class="col-12 mb-5 form-outline">
-                    <label for="title" class="form-label">Chapo</label>
-                    <textarea class="w-100 form-control" type="text" name="articleChapo">{{ article.chapo }}</textarea>
+                <div class="">
+                    <label for="title" class="">Description</label>
+                    <textarea class=l" type="text"
+                              name="articleContent">{{ article.contentPost }}</textarea>
                 </div>
-
-                <div class="col-12 mb-5 form-outline">
-                    <label for="title" class="form-label">Description</label>
-                    <textarea class="w-100 form-control" type="text"
-                              name="articleContent">{{ article.content }}</textarea>
-                </div>
-
-
-                <input type="submit" value="Valider les modifications" class="btn btn-primary btn-lg">
+                <input type="submit" value="Valider les modifications" class="">
             </form>
         </div>
 

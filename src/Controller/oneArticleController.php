@@ -25,7 +25,7 @@ class oneArticleController extends MasterController
         $oneArticle = $article->getOneArticle($id);
 
         $comment = new Comment();
-        $comments = $comment->getCommentsApprouved();
+        $comments = $comment->getCommentsApprouved($id);
         $this->twig->display('oneArticle/index.html.twig', [
             "articles" => $oneArticle,
             "comments" => $comments
@@ -38,10 +38,11 @@ class oneArticleController extends MasterController
         $oneArticle = $article->getOneArticle($id);
         $comment = new Comment();
         $comment->createComment($_POST["commentAuthor"], $_POST["commentEmail"], $_POST["commentContent"], $id);
+        $comments = $comment->getCommentsApprouved($id);
 
         $this->twig->display('oneArticle/index.html.twig', [
             "articles" => $oneArticle,
-            "comments" => $this->comments
+            "comments" => $comments
         ]);
     }
 }

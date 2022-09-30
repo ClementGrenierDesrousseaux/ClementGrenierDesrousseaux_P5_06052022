@@ -1,4 +1,4 @@
-{% extends "baseAdmin.html.twig.html.twig" %}
+{% extends "baseAdmin.html.twig" %}
 
 {% block title %} Page d'accueil {% endblock %}
 
@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-    <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/articles/createValidation" method="post">
+    <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/articles/create" method="post">
         <div class="form-group">
             <label for="articleTitle">Titre de l'article</label>
             <input type="text" class="form-control" id="articleTitle" aria-describedby="emailHelp"

@@ -24,11 +24,15 @@ $router->post('/register', 'App\Controller\RegisterController@index');
 
 /* URL ADMIN */
 $router->get('/admin', 'App\Controller\Admin\AdminController@adminIndex');
+
 $router->get('/admin/articles', 'App\Controller\Admin\AdminController@adminArticles');
-$router->get('/admin/articles/create', 'App\Controller\Admin\AdminController@adminArticleCreate');
-$router->get('/admin/articles/createValidation', 'App\Controller\Admin\AdminController@adminArticleCreateResponse');
-$router->get('/admin/article/:id', 'App\Controller\Admin\AdminController@adminArticleModify');
-$router->get('/admin/articleModifyValidation', 'App\Controller\Admin\AdminController@adminArticleModifyResponse');
+
+$router->get('/admin/articles/create', 'App\Controller\Admin\AdminCreateArticle@index');
+$router->post('/admin/articles/create', 'App\Controller\Admin\AdminCreateArticle@index');
+
+$router->get('/admin/article/:id', 'App\Controller\Admin\AdminArticleModify@index');
+$router->post('/admin/article/:id', 'App\Controller\Admin\AdminArticleModify@index');
+
 $router->get('/admin/article/delete/:id', 'App\Controller\Admin\AdminController@adminDeleteOneArticle');
 $router->get('/admin/disconnect', 'App\Controller\Admin\AdminController@disconnectUSer');
 $router->get('/admin/commentaires', 'App\Controller\Admin\AdminController@getCommentsNonApprouved');

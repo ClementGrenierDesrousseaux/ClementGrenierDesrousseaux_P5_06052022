@@ -10,21 +10,48 @@
     {% block stylesheets %} {% endblock %}
 
     {% block scripts %} {% endblock %}
-    <link rel="stylesheet" href="../public/css/style.css">
-    <script src="../public/js/script.js"></script>
+    <link rel="stylesheet" href="/ClementGrenierDesrousseaux_P5_06052022/public/css/style.css">
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
           rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dangrek&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-   {# <div class="container">
-        <div class="row">
-            <div class="col-12 d-flex align-items-center justify-content-center mt-3">
-                <img src="../../public/asset/img/logo_transparent.png" alt="" class="w-25">
-            </div>
-        </div>
-    </div>#}
 
-{% block body %} {% endblock %}
+<header>
+    <div class="logo-and-title">
+        <img src="/ClementGrenierDesrousseaux_P5_06052022/public/asset/img/openclassroom-p5-logo.png" alt="">
+        <div>
+            <h1>Clément Grenier--Desrousseaux</h1>
+            <h2>Développeur, aussi Agile qu'un funambule</h2>
+        </div>
+    </div>
+
+    <nav>
+        <a href="/ClementGrenierDesrousseaux_P5_06052022/"><h2>Accueil</h2></a>
+        <a href="/ClementGrenierDesrousseaux_P5_06052022/articles"><h2>Nos articles</h2></a>
+        <a href="/ClementGrenierDesrousseaux_P5_06052022/contact"><h2>Nous contacter</h2></a>
+    </nav>
+</header>
+
+<div>{% block content %} {% endblock %}</div>
+
+<footer>
+    <div class="footer-cv">
+        <a href="public/asset/pdf/cv.pdf">CV</a>
+    </div>
+    <div class="footer-social">
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-github"></i>
+    </div>
+    <div class="footer-access-admin">
+        <a href="admin"> Accès Back Office</a>
+    </div>
+</footer>
+
 </body>
 </html>

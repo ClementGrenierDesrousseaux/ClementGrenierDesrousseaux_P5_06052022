@@ -1,51 +1,35 @@
 {% extends "baseAdmin.html.twig" %}
 
-{% block title %} Page d'accueil {% endblock %}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="public/css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
-          rel="stylesheet"/>
-{% endblock %}
-
-{% block scripts %}
-    <script src="public/js/script.js"></script>
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-{% endblock %}
+{% block title %} Articles {% endblock %}
 
 {% block content %}
-    <div><a href="/ClementGrenierDesrousseaux_P5_06052022/admin/articles/create">Créer un article</a></div>
-    <div class="row mt-3 mb-3">
-        <div class="col-12">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Titre</th>
-                    <th>Date</th>
-                    <th>Modifier</th>
-                    <th>Supprimer</th>
+    <!--<div><a href="/ClementGrenierDesrousseaux_P5_06052022/admin/articles/create">Créer un article</a></div>-->
+    <div class="admin-display-list-articles">
+        <table class="admin-display-article">
+            <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Date de publication</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+            {% for article in articles %}
+                <tr class="admin-display-article-content">
+                    <td>{{ article.idPost }}</td>
+                    <td>{{ article.titlePost }}</td>
+                    <td>{{ article.datePost | date('d/m/Y') }}</td>
+                    <td>
+                        <div class="admin-display-article-content-link">
+                            <a href="/ClementGrenierDesrousseaux_P5_06052022/admin/article/{{ article.idPost }}">Modifier</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="admin-display-article-content-link">
+                            <a href="/ClementGrenierDesrousseaux_P5_06052022/admin/article/delete/{{ article.idPost }}">Supprimer</a>
+                        </div>
+                    </td>
                 </tr>
-                </thead>
-                <tbody>
-                {% for article in articles %}
-                    <tr>
-                        <th scope="row">{{ article.id }}</th>
-                        <td>{{ article.title }}</td>
-                        <td>{{ article.date | date('d/m/Y') }}</td>
-                        <td>
-                            <button><a href="/ClementGrenierDesrousseaux_P5_06052022/admin/article/{{ article.id }}">Modifier</a>
-                            </button>
-                        </td>
-                        <td>
-                            <button>
-                                <a href="/ClementGrenierDesrousseaux_P5_06052022/admin/article/delete/{{ article.id }}">Supprimer</a>
-                            </button>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
+            {% endfor %}
+        </table>
     </div>
 {% endblock %}

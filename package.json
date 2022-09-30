@@ -1,0 +1,22 @@
+{
+  "name": "clementgrenierdesrousseaux_p5_06052022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClementGrenierDesrousseaux/ClementGrenierDesrousseaux_P5_06052022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClementGrenierDesrousseaux/ClementGrenierDesrousseaux_P5_06052022/issues"
+  },
+  "homepage": "https://github.com/ClementGrenierDesrousseaux/ClementGrenierDesrousseaux_P5_06052022#readme",
+  "dependencies": {
+    "cypress": "^10.8.0"
+  }
+}

@@ -1,162 +1,67 @@
 {% extends "base.html.twig" %}
 
-{% block title %} Page d'accueil {% endblock %}
+{% block title %} test {% endblock %}
 
-{% block stylesheets %}
-    <link rel="stylesheet" href="public/css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
-          rel="stylesheet"/>
-{% endblock %}
+{% block stylesheets %} {% endblock %}
 
-{% block scripts %}
-    <script src="public/js/script.js"></script>
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-{% endblock %}
+{% block content %}
 
-
-
-
-{% block body %}
-
-    <header>
-        <!--  Navigation  -->
-        <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
-        <nav id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">Mon portefolio</li>
-                <li class="sidebar-nav-item"><a href="/ClementGrenierDesrousseaux_P5_06052022/">Accueil</a></li>
-                <li class="sidebar-nav-item"><a href="articles">Nos articles</a></li>
-                <li class="sidebar-nav-item"><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12 d-flex align-items-center justify-content-center mt-3">
-                    <img src="../public/asset/img/logo_transparent.png" alt="" class="w-25">
-                </div>
-
-            </div>
-        </div>
-    </header>
-
-    {#    AFFICHAGE DE L'ARTICLE    #}
-    <div class="container">
-        <div class="raw">
-            {% for article in articles %}
-
-            <div class="row mt-3 mb-3">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h4>{{ article.titlePost }}</h4>
-                                <p>{{ article.datePost }}</p>
-                            </div>
-                            <div class="mx-5 mt-3 mb-3">
-                                <p>{{ article.chapoPost }}</p>
-                            </div>
-                            <div>
-                                <p>{{ article.contentPost | raw }}</p>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <p>{{ article.authorPost }}</p>
-                            </div>
-                        </div>
+    {% for article in articles %}
+        <div class="oneArticle">
+            <div id="oneArticle-article-form-comment">
+                <div id="oneArticle-article">
+                    <div id="oneArticle-article-title-date">
+                        <h4>{{ article.titlePost }}</h4>
+                        <p>{{ article.datePost | date('d/m/Y')}}</p>
+                    </div>
+                    <div id="oneArticle-article-chapo">
+                        <p>{{ article.chapoPost }}</p>
+                    </div>
+                    <div id="oneArticle-article-content">
+                        <p>{{ article.contentPost | raw }}</p>
+                    </div>
+                    <div id="oneArticle-article-author">
+                        <p>Auteur : {{ article.authorPost }}</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="raw d-flex justify-content-around mt-5">
-                {#    FORMULAIRE DE COMMENTAIRE    #}
-                <div class="col-md-3 col-sm-12">
-                    <h2 class="justify-content-center align-items-center d-flex">Un commentaire ?</h2>
-                    <div class="align-items-center justify-content-center d-flex">
-                        <form method="post" action="/ClementGrenierDesrousseaux_P5_06052022/article/{{ article.idPost }}">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Nom/Prénom ou Pseudo</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                       aria-describedby="emailHelp" name="commentAuthor">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                       aria-describedby="emailHelp" name="commentEmail">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Message</label>
-                                <textarea class="form-control" aria-label="With textarea"
-                                          name="commentContent"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Envoyer mon message</button>
-                        </form>
+                <form method="post"
+                      action="/ClementGrenierDesrousseaux_P5_06052022/article/{{ article.idPost }}" id="oneArticle-comment-form">
+                    <h2>Poster un commentaire</h2>
+                    <div class="oneArticle-comment-form-label-input">
+                        <label for="exampleInputEmail1" class="form-label">Nom/Prénom ou Pseudo</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp" name="commentAuthor">
                     </div>
-                </div>
 
-                {#    AFFICHAGE DES COMMENTAIRES    #}
-                <div class="col-md-6 col-sm-12">
-                    <h2 class="justify-content-center align-items-center d-flex">Commentaires</h2>
+                    <div class="oneArticle-comment-form-label-input">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp" name="commentEmail">
+                    </div>
 
-                    {% for comment in comments %}
-
-                        <div class="row mt-3 mb-3">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <h6>{{ comment.commentAuthor }}</h6>
-                                            <p>{{ comment.dateComment | date("d/m/Y")}}</p>
-                                        </div>
-                                        <div>
-                                            <p>{{ comment.commentContent | raw }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="oneArticle-comment-form-label-input">
+                        <label for="exampleInputEmail1" class="form-label">Message</label>
+                        <textarea class="form-control" aria-label="With textarea"
+                                  name="commentContent"></textarea>
+                    </div>
+                    <button type="submit" class="">Publier son commentaire*</button>
+                    <p>*Sous réserve de validation de la part d'un administrateur</p>
+                </form>
+            </div>
+            <div id="oneArticle-list-comments">
+                <h2 style="text-align: center">Commentaires</h2>
+                {% for comment in comments %}
+                    <div class="oneArticle-comment">
+                        <div class="oneArticle-comment-author-date">
+                            <h4>{{ comment.commentAuthor }}</h4>
+                            <p>{{ comment.dateComment | date("d/m/Y") }}</p>
                         </div>
-
-                    {% endfor %}
-                </div>
-
+                        <div>
+                            <p>{{ comment.commentContent | raw }}</p>
+                        </div>
+                    </div>
                 {% endfor %}
             </div>
-
-            {#    ZONE DE COMMENTAIRES    #}
-
-
-
         </div>
-    </div>
-
-    {#    FOOTER    #}
-
-    <div class="container-fluid bg-light">
-        <footer class="container footer text-center d-flex justify-content-between align-items-center">
-            <div class="col-2 ">
-                <a href="public/asset/pdf/cv.pdf">CV</a>
-            </div>
-            <div class="col-8 d-flex align-items-center justify-content-center">
-                <ul class="list-inline mb-5">
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i
-                                    class="icon-social-linkedin"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i
-                                    class="icon-social-twitter"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white" href="#!"><i
-                                    class="icon-social-github"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-2">
-                <a href="admin">Accès Back Office</a>
-            </div>
-        </footer>
-    </div>
-
+    {% endfor %}
 {% endblock %}
