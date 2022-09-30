@@ -96,7 +96,7 @@ class AdminController extends MasterController
         if (!isset($sessionMail)) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
-        } else if (isset($_REQUEST['button_submit'])) {
+        } else {
             $valueSubmit = $_REQUEST['button_submit'];
             switch ($valueSubmit) {
                 case 'Valider le commentaire':
