@@ -24,13 +24,13 @@ class LoginController extends MasterController
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
             exit();
         } else {
-            $userEmail = $_POST['userEmail'];
-            $userPassword = $_POST['userPassword'];
             if (isset($userEmail) && isset($userPassword)) {
+                $userEmail = $_POST['userEmail'];
+                $userPassword = $_POST['userPassword'];
                 $user = new User();
                 $userIdentified = $user->checkPassword($userEmail, $userPassword);
                 if ($userIdentified) {
-                    $_SESSION["email"] = $_POST['userEmail'];
+                    $_SESSION["email"] = $userEmail;
                     header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
                 }
             }

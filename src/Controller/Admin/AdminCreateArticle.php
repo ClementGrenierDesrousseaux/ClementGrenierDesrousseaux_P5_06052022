@@ -19,12 +19,12 @@ class AdminCreateArticle extends \App\Controller\MasterController
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
-            $postTitle = $_POST["articleTitle"];
-            $postChapo = $_POST["articleChapo"];
-            $postContent = $_POST["articleContent"];
-            $postAuthor = $_POST["articleAuthor"];
-
             if (isset($postTitle) && isset($postChapo) && isset($postContent) && isset($postAuthor)) {
+                $postTitle = $_POST["articleTitle"];
+                $postChapo = $_POST["articleChapo"];
+                $postContent = $_POST["articleContent"];
+                $postAuthor = $_POST["articleAuthor"];
+
                 $article = new Article();
                 $result = $article->createArticle($postTitle, $postChapo, $postContent, $postAuthor);
 

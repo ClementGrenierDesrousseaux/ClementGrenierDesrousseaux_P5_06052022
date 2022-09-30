@@ -39,19 +39,21 @@ class oneArticleController extends MasterController
      */
     public function createComment($articleIdentifier)
     {
-        $commentAuthor = $_POST["commentAuthor"];
-        $commentEmail = $_POST["commentEmail"];
-        $commentContent = $_POST["commentContent"];
+        if (isset($_POST["commentAuthor"]) && isset($_POST["commentEmail"]) && isset($_POST["commentContent"])) {
+            $commentAuthor = $_POST["commentAuthor"];
+            $commentEmail = $_POST["commentEmail"];
+            $commentContent = $_POST["commentContent"];
 
-        $article = new Article();
-        $oneArticle = $article->getOneArticle($articleIdentifier);
-        $comment = new Comment();
-        $comment->createComment($commentAuthor, $commentEmail, $commentContent, $articleIdentifier);
-        $comments = $comment->getCommentsApprouved($articleIdentifier);
+            $article = new Article();
+            $oneArticle = $article->getOneArticle($articleIdentifier);
+            $comment = new Comment();
+            $comment->createComment($commentAuthor, $commentEmail, $commentContent, $articleIdentifier);
+            $comments = $comment->getCommentsApprouved($articleIdentifier);
 
-        $this->twig->display('oneArticle/index.html.twig', [
-            "articles" => $oneArticle,
-            "comments" => $comments
-        ]);
+            $this->twig->display('oneArticle/index.html.twig', [
+                "articles" => $oneArticle,
+                "comments" => $comments
+            ]);
+        }
     }
 }
