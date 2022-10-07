@@ -22,7 +22,7 @@ class Comment
         return "Le commentaire a bien été créé !";
     }
 
-    public function getCommentsApprouved($id)
+    public function getCommentsApprouved($articleIdentifier)
     {
         try {
             $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
@@ -32,7 +32,7 @@ class Comment
 
 
         $comment_statement = $db->prepare('SELECT * FROM comment WHERE isApprouved = 1 AND idPost = ? ORDER BY dateComment DESC');
-        $comment_statement->execute([$id]);
+        $comment_statement->execute([$articleIdentifier]);
         $comments = $comment_statement->fetchAll();
 
         return $comments;
@@ -54,7 +54,7 @@ class Comment
         return $comments;
     }
 
-    public function deleteComment($id)
+    public function deleteComment($commentIdentifier)
     {
         try {
             $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
@@ -64,12 +64,12 @@ class Comment
 
 
         $comment_statement = $db->prepare('DELETE FROM comment WHERE idcomment = ?');
-        $comment_statement->execute([$id]);
+        $comment_statement->execute([$commentIdentifier]);
 
         return "Commentaire supprimé";
     }
 
-    public function approuveComment($id)
+    public function approuveComment($commentIdentifier)
     {
         try {
             $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
@@ -79,7 +79,7 @@ class Comment
 
 
         $comment_statement = $db->prepare('UPDATE comment SET isApprouved = 1 WHERE idcomment = ?');
-        $comment_statement->execute([$id]);
+        $comment_statement->execute([$commentIdentifier]);
 
         return "Commentaire approuvé";
     }

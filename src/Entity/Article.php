@@ -55,7 +55,7 @@ class Article
         return $articles;
     }
 
-    public function getOneArticle($id)
+    public function getOneArticle($articleIdentifier)
     {
         try {
             $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
@@ -65,7 +65,7 @@ class Article
 
 
         $articles_statement = $db->prepare('SELECT * FROM post WHERE idPost = ?');
-        $articles_statement->execute([$id]);
+        $articles_statement->execute([$articleIdentifier]);
         $articles = $articles_statement->fetchAll();
 
         return $articles;
@@ -88,7 +88,7 @@ class Article
 
 }
 
-    public function updateArticle($id, $title, $chapo, $content)
+    public function updateArticle($articleIdentifier, $title, $chapo, $content)
     {
         try {
             $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
@@ -98,12 +98,12 @@ class Article
 
         $sql = "UPDATE post SET titlePost=?, chapoPost=?, contentPost=? WHERE idPost=?";
         $stmt= $db->prepare($sql);
-        $stmt->execute([$title, $chapo, $content, $id]);
+        $stmt->execute([$title, $chapo, $content, $articleIdentifier]);
 
         return "L'article a bien été modifié !";
 }
 
-    public function deleteArticle($id)
+    public function deleteArticle($articleIdentifier)
     {
         try {
             $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
@@ -113,7 +113,7 @@ class Article
 
         $sql = "DELETE FROM post WHERE idPost=?";
         $stmt= $db->prepare($sql);
-        $stmt->execute([$id]);
+        $stmt->execute([$articleIdentifier]);
 
 }
 }
