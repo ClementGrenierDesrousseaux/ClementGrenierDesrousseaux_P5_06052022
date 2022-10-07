@@ -34,7 +34,7 @@ $router->get('/admin/article/:id', 'App\Controller\Admin\AdminArticleModify@inde
 $router->post('/admin/article/:id', 'App\Controller\Admin\AdminArticleModify@index');
 
 $router->get('/admin/article/delete/:id', 'App\Controller\Admin\AdminController@adminDeleteOneArticle');
-$router->get('/admin/disconnect', 'App\Controller\Admin\AdminController@disconnectUSer');
+$router->get('/admin/disconnect', 'App\Controller\Admin\AdminController@disconnectUser');
 $router->get('/admin/commentaires', 'App\Controller\Admin\AdminController@getCommentsNonApprouved');
 $router->post('/admin/commentaires', 'App\Controller\Admin\AdminController@approuveOrDeleteComment');
 

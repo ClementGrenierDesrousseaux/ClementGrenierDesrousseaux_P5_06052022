@@ -39,10 +39,8 @@ class User
 
         $stmt->closeCursor();
 
-        if (password_verify($userPassword, $passwordHash['userPassword'])) {
+        if (!empty($passwordHash['userPassword']) && !empty($userPassword) && password_verify($userPassword, $passwordHash['userPassword'])) {
             return true;
-
-
         } else {
             return false;
         }

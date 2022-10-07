@@ -18,20 +18,20 @@ class LoginController extends MasterController
      */
     public function index()
     {
-        $sessionMail = $_SESSION['email'];
-
-        if (isset($sessionMail)) {
+        if (isset($_SESSION['email'])) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
             exit();
         } else {
-            $userEmail = $_POST['userEmail'];
-            $userPassword = $_POST['userPassword'];
-            if (isset($userEmail) && isset($userPassword)) {
+            if (isset($_POST['userEmail']) && isset($_POST['userPassword'])) {
+                $userEmail = $_POST['userEmail'];
+                $userPassword = $_POST['userPassword'];
                 $user = new User();
                 $userIdentified = $user->checkPassword($userEmail, $userPassword);
                 if ($userIdentified) {
                     $_SESSION["email"] = $_POST['userEmail'];
                     header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
+                } else {
+                    header("HTTP/1.1 401 Internal Server Error");
                 }
             }
             $this->twig->display('login/index.html.twig');

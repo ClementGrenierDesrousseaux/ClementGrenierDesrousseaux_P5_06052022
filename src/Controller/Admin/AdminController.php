@@ -65,12 +65,11 @@ class AdminController extends MasterController
 
     public function disconnectUser()
     {
-        $sessionMail = $_SESSION['email'];
-        if (!isset($sessionMail)) {
+        if (!isset($_SESSION['email'])) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
-            unset($sessionMail);
+            unset($_SESSION['email']);
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
         }
     }
