@@ -29,16 +29,14 @@ class Comment
     }
 
     /**
-     * @param $id
+     * @param $commentIdentifier
      * @return bool|array
      */
-    public function getCommentsApprouved($id): bool|array
+    public function getCommentsApprouved($commentIdentifier): bool|array
     {
         $comment_statement = $this->Database->prepare('SELECT * FROM comment WHERE isApprouved = 1 AND idPost = ? ORDER BY dateComment DESC');
-        $comment_statement->execute([$id]);
-        $comments = $comment_statement->fetchAll();
-
-        return $comments;
+        $comment_statement->execute([$commentIdentifier]);
+        return $comment_statement->fetchAll();
     }
 
     /**
@@ -48,31 +46,29 @@ class Comment
     {
         $comment_statement = $this->Database->prepare('SELECT * FROM comment WHERE isApprouved = 0 ORDER BY dateComment DESC');
         $comment_statement->execute();
-        $comments = $comment_statement->fetchAll();
-
-        return $comments;
+        return $comment_statement->fetchAll();
     }
 
     /**
-     * @param $id
+     * @param $commentIdentifier
      * @return string
      */
-    public function deleteComment($id): string
+    public function deleteComment($commentIdentifier): string
     {
         $comment_statement = $this->Database->prepare('DELETE FROM comment WHERE idcomment = ?');
-        $comment_statement->execute([$id]);
+        $comment_statement->execute([$commentIdentifier]);
 
         return "Commentaire supprimé";
     }
 
     /**
-     * @param $id
+     * @param $commentIdentifier
      * @return string
      */
-    public function approuveComment($id): string
+    public function approuveComment($commentIdentifier): string
     {
         $comment_statement = $this->Database->prepare('UPDATE comment SET isApprouved = 1 WHERE idcomment = ?');
-        $comment_statement->execute([$id]);
+        $comment_statement->execute([$commentIdentifier]);
 
         return "Commentaire approuvé";
     }

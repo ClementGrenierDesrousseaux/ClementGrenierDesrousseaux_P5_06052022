@@ -19,9 +19,7 @@ class Article
     {
         $articles_statement = $this->Database->prepare('SELECT * FROM post ORDER BY datePost DESC');
         $articles_statement->execute();
-        $articles = $articles_statement->fetchAll();
-
-        return $articles;
+        return $articles_statement->fetchAll();
     }
 
     /**
@@ -31,9 +29,7 @@ class Article
     {
         $articles_statement = $this->Database->prepare('SELECT COUNT(*) FROM post');
         $articles_statement->execute();
-        $nbArticles = $articles_statement->fetchAll();
-
-        return $nbArticles;
+        return $articles_statement->fetchAll();
     }
 
     /**
@@ -44,22 +40,18 @@ class Article
 
         $articles_statement = $this->Database->prepare('SELECT * FROM post ORDER BY datePost DESC LIMIT 3');
         $articles_statement->execute();
-        $articles = $articles_statement->fetchAll();
-
-        return $articles;
+        return $articles_statement->fetchAll();
     }
 
     /**
-     * @param $id
+     * @param $articleIdentifier
      * @return bool|array
      */
-    public function getOneArticle($id): bool|array
+    public function getOneArticle($articleIdentifier): bool|array
     {
         $articles_statement = $this->Database->prepare('SELECT * FROM post WHERE idPost = ?');
-        $articles_statement->execute([$id]);
-        $articles = $articles_statement->fetchAll();
-
-        return $articles;
+        $articles_statement->execute([$articleIdentifier]);
+        return $articles_statement->fetchAll();
     }
 
 
@@ -81,30 +73,30 @@ class Article
     }
 
     /**
-     * @param $id
+     * @param $articleIdentifier
      * @param $title
      * @param $chapo
      * @param $content
      * @return string
      */
-    public function updateArticle($id, $title, $chapo, $content): string
+    public function updateArticle($articleIdentifier, $title, $chapo, $content): string
     {
         $sql = "UPDATE post SET titlePost=?, chapoPost=?, contentPost=? WHERE idPost=?";
         $stmt = $this->Database->prepare($sql);
-        $stmt->execute([$title, $chapo, $content, $id]);
+        $stmt->execute([$title, $chapo, $content, $articleIdentifier]);
 
         return "L'article a bien été modifié !";
     }
 
     /**
-     * @param $id
+     * @param $articleIdentifier
      * @return void
      */
-    public function deleteArticle($id): void
+    public function deleteArticle($articleIdentifier): void
     {
         $sql = "DELETE FROM post WHERE idPost=?";
         $stmt = $this->Database->prepare($sql);
-        $stmt->execute([$id]);
+        $stmt->execute([$articleIdentifier]);
 
     }
 }
