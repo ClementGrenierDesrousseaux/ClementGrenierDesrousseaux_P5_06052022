@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Contactez-nous {% endblock %}
+
+
+{% block scripts %}
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+
+
+{% block content %}
+    {{ test }}
+    <div class="form-login-connection">
+        <h2 class="mb-5">Page de connexion au Back-Office</h2>
+        <form action="/ClementGrenierDesrousseaux_P5_06052022/contact" method="post">
+            <!-- Email input -->
+            <div class="form-login-connection-label">
+                <label>Email</label>
+                <input type="email" class="" name="contactUserEmail"/>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-login-connection-label">
+                <label>Prénom et nom ou pseudo</label>
+                <input type="text" class="" name="contactUserName"/>
+            </div>
+
+            <div class="form-login-connection-label">
+                <label class="" for="form2Example1">Email</label>
+                <textarea name="contactUserContent" id="" cols="30" rows="10"></textarea>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="">Envoyer mon message</button>
+        </form>
+    </div>
+{% endblock %}
