@@ -31,3 +31,4 @@ Le blog est constitué de 2 parties :
 - URL partie Admin : http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin
 - Identifitants Admin : 
 - Mot de passe Admin
+

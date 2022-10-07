@@ -49,6 +49,7 @@ class Comment
         return $comment_statement->fetchAll();
     }
 
+
     /**
      * @param $commentIdentifier
      * @return string
@@ -57,9 +58,10 @@ class Comment
     {
         $comment_statement = $this->Database->prepare('DELETE FROM comment WHERE idcomment = ?');
         $comment_statement->execute([$commentIdentifier]);
-
+        
         return "Commentaire supprimé";
     }
+
 
     /**
      * @param $commentIdentifier

@@ -43,6 +43,7 @@ class Article
         return $articles_statement->fetchAll();
     }
 
+
     /**
      * @param $articleIdentifier
      * @return bool|array
@@ -69,8 +70,8 @@ class Article
         $stmt->execute([$title, $chapo, $content, $author]);
 
         return "L'article a bien été créé !";
-
     }
+
 
     /**
      * @param $articleIdentifier
@@ -80,6 +81,7 @@ class Article
      * @return string
      */
     public function updateArticle($articleIdentifier, $title, $chapo, $content): string
+
     {
         $sql = "UPDATE post SET titlePost=?, chapoPost=?, contentPost=? WHERE idPost=?";
         $stmt = $this->Database->prepare($sql);
@@ -93,10 +95,10 @@ class Article
      * @return void
      */
     public function deleteArticle($articleIdentifier): void
+
     {
         $sql = "DELETE FROM post WHERE idPost=?";
         $stmt = $this->Database->prepare($sql);
         $stmt->execute([$articleIdentifier]);
-
     }
 }
