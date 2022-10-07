@@ -21,5 +21,14 @@ Le blog est constitué de 2 parties :
 - ``> git clone https://github.com/ClementGrenierDesrousseaux/ClementGrenierDesrousseaux_P5_06052022.git``
 - ``> cd ClementGrenierDesrousseaux_P5_06052022``
 - ``> composer install``
-- Modifier les ID de la BDD
-- ``> script.php``
+- Importer le dump bdd_P5 dans votre gestionnaire de base de données (phpMyAdmin par exemple)
+- Modifier les identifiants de connexion dans src/Entity/DatabaseConnector.php
+
+---
+
+## Ressources
+
+- URL partie Admin : http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin
+- Identifitants Admin : 
+- Mot de passe Admin
+
