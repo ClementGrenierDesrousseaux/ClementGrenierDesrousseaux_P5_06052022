@@ -2,69 +2,60 @@
 
 namespace App\Entity;
 
-
-use Exception;
-use PDO;
-
 class Article
 {
 
-    public function getAllArticles()
-    {
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
+    private DatabaseConnector $Database;
 
-        $articles_statement = $db->prepare('SELECT * FROM post ORDER BY datePost DESC');
+    function __construct()
+    {
+        $this->Database = new DatabaseConnector();
+    }
+
+    /**
+     * @return bool|array
+     */
+    public function getAllArticles(): bool|array
+    {
+        $articles_statement = $this->Database->prepare('SELECT * FROM post ORDER BY datePost DESC');
         $articles_statement->execute();
         $articles = $articles_statement->fetchAll();
 
         return $articles;
     }
 
-    public function getNumberArticles()
+    /**
+     * @return bool|array
+     */
+    public function getNumberArticles(): bool|array
     {
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-
-        $articles_statement = $db->prepare('SELECT COUNT(*) FROM post');
+        $articles_statement = $this->Database->prepare('SELECT COUNT(*) FROM post');
         $articles_statement->execute();
         $nbArticles = $articles_statement->fetchAll();
 
         return $nbArticles;
     }
 
-    public function getFourLastArticles()
+    /**
+     * @return bool|array
+     */
+    public function getFourLastArticles(): bool|array
     {
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
 
-
-        $articles_statement = $db->prepare('SELECT * FROM post ORDER BY datePost DESC LIMIT 4');
+        $articles_statement = $this->Database->prepare('SELECT * FROM post ORDER BY datePost DESC LIMIT 3');
         $articles_statement->execute();
         $articles = $articles_statement->fetchAll();
 
         return $articles;
     }
 
-    public function getOneArticle($id)
+    /**
+     * @param $id
+     * @return bool|array
+     */
+    public function getOneArticle($id): bool|array
     {
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-
-
-        $articles_statement = $db->prepare('SELECT * FROM post WHERE idPost = ?');
+        $articles_statement = $this->Database->prepare('SELECT * FROM post WHERE idPost = ?');
         $articles_statement->execute([$id]);
         $articles = $articles_statement->fetchAll();
 
@@ -72,48 +63,48 @@ class Article
     }
 
 
-    public function createArticle($title, $chapo, $content, $author)
+    /**
+     * @param $title
+     * @param $chapo
+     * @param $content
+     * @param $author
+     * @return string
+     */
+    public function createArticle($title, $chapo, $content, $author): string
     {
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-
         $sql = "INSERT INTO post (titlePost, chapoPost, contentPost, authorPost) VALUES (?,?,?,?)";
-        $stmt= $db->prepare($sql);
+        $stmt = $this->Database->prepare($sql);
         $stmt->execute([$title, $chapo, $content, $author]);
 
         return "L'article a bien été créé !";
 
-}
+    }
 
-    public function updateArticle($id, $title, $chapo, $content)
+    /**
+     * @param $id
+     * @param $title
+     * @param $chapo
+     * @param $content
+     * @return string
+     */
+    public function updateArticle($id, $title, $chapo, $content): string
     {
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-
         $sql = "UPDATE post SET titlePost=?, chapoPost=?, contentPost=? WHERE idPost=?";
-        $stmt= $db->prepare($sql);
+        $stmt = $this->Database->prepare($sql);
         $stmt->execute([$title, $chapo, $content, $id]);
 
         return "L'article a bien été modifié !";
-}
+    }
 
-    public function deleteArticle($id)
+    /**
+     * @param $id
+     * @return void
+     */
+    public function deleteArticle($id): void
     {
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=bdd_P5;charset=utf8', 'root', 'root');
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-
         $sql = "DELETE FROM post WHERE idPost=?";
-        $stmt= $db->prepare($sql);
+        $stmt = $this->Database->prepare($sql);
         $stmt->execute([$id]);
 
-}
+    }
 }
