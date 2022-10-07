@@ -13,7 +13,8 @@ $router->get('/', 'App\Controller\IndexController@index');
 $router->get('/articles', 'App\Controller\listArticlesController@index');
 $router->get('/article/:id', 'App\Controller\oneArticleController@index');
 $router->post('/article/:id', 'App\Controller\oneArticleController@createComment');
-$router->get('/bdd', 'App\Controller\BddController@index');
+$router->get('/contact', 'App\Controller\contactForm@index');
+$router->post('/contact', 'App\Controller\contactForm@index');
 
 
 /* URL OF LOGIN / REGISTER */
@@ -37,5 +38,7 @@ $router->get('/admin/article/delete/:id', 'App\Controller\Admin\AdminController@
 $router->get('/admin/disconnect', 'App\Controller\Admin\AdminController@disconnectUser');
 $router->get('/admin/commentaires', 'App\Controller\Admin\AdminController@getCommentsNonApprouved');
 $router->post('/admin/commentaires', 'App\Controller\Admin\AdminController@approuveOrDeleteComment');
+
+$router->get('/admin/message', 'App\Controller\Admin\AdminContactMessage@index');
 
 $router->run();
