@@ -17,4 +17,14 @@ class ContactMessage extends DatabaseConnector
         $stmt = $this->Database->prepare($sql);
         $stmt->execute([$contactEmail, $contactName, $contactContent]);
     }
+
+    function getContactMessage(): bool|array
+    {
+
+        $sql = "SELECT * FROM contactForm ORDER BY dateUserContactForm DESC";
+        $stmt = $this->Database->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }

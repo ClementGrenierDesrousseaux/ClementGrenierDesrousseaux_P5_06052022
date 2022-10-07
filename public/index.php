@@ -39,4 +39,6 @@ $router->get('/admin/disconnect', 'App\Controller\Admin\AdminController@disconne
 $router->get('/admin/commentaires', 'App\Controller\Admin\AdminController@getCommentsNonApprouved');
 $router->post('/admin/commentaires', 'App\Controller\Admin\AdminController@approuveOrDeleteComment');
 
+$router->get('/admin/message', 'App\Controller\Admin\AdminContactMessage@index');
+
 $router->run();
