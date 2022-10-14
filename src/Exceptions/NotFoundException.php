@@ -25,6 +25,11 @@ class NotFoundException extends \Exception
         $this->twig = new Environment($this->loader);
     }
 
+    /**
+     * @throws \Twig\Error\SyntaxError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\LoaderError
+     */
     public function error404()
     {
         $this->twig->display('error/404.html.twig');
