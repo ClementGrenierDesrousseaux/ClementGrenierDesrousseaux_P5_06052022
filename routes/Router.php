@@ -2,6 +2,8 @@
 
 namespace Router;
 
+use App\Exceptions\NotFoundException;
+
 class Router
 {
 
@@ -31,7 +33,7 @@ class Router
             }
         }
 
-       throw new \Exception("La page est 404");
+       throw new NotFoundException("La page est 404");
     }
 
 

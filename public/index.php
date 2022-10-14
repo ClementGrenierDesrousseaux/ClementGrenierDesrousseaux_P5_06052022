@@ -1,5 +1,6 @@
 <?php
 
+use App\Exceptions\NotFoundException;
 use Router\Router;
 
 require('../vendor/autoload.php');
@@ -46,6 +47,6 @@ $router->get('/admin/message', 'App\Controller\Admin\AdminContactMessage@index')
 
 try {
     $router->run();
-} catch (\Exception $e) {
-    echo $e->getMessage();
+} catch (NotFoundException $e) {
+    echo $e->error404();
 }
