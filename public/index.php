@@ -7,6 +7,9 @@ require('../vendor/autoload.php');
 
 session_start();
 
+$dotenv = Dotenv\Dotenv::createImmutable("../");
+$dotenv->load();
+
 $router = new Router($_GET['url']);
 
 /* URL FRONT */
