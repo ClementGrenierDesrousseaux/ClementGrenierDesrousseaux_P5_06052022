@@ -26,8 +26,8 @@ class LoginController extends MasterController
                 $userEmail = $_POST['userEmail'];
                 $userPassword = $_POST['userPassword'];
                 $user = new User();
-                $userIdentified = $user->checkPassword($userEmail, $userPassword);
-                if ($userIdentified) {
+                $isUserIdentified = $user->checkPassword($userEmail, $userPassword);
+                if ($isUserIdentified) {
                     $_SESSION["email"] = $_POST['userEmail'];
                     header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
                 } else {

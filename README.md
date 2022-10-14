@@ -32,3 +32,10 @@ Le blog est constitué de 2 parties :
 - Identifitants Admin : 
 - Mot de passe Admin
 
+---
+
+## Sources
+
+- Article ID 4 : https://alexsoyes.com/trouver-emploi-developpeur/
+- Article ID 3 : https://code-garage.fr/blog/qu-est-ce-que-osint-ou-open-source-intelligence/
+- Article ID 3 : https://code-garage.fr/blog/le-premier-jour-en-tant-que-developpeur-junior/

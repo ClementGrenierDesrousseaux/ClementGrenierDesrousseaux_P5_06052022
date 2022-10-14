@@ -11,53 +11,78 @@
             <div id="oneArticle-article-form-comment">
                 <div id="oneArticle-article">
                     <div id="oneArticle-article-title-date">
-                        <h4>{{ article.titlePost }}</h4>
-                        <p>{{ article.datePost | date('d/m/Y')}}</p>
+                        <h2>{{ article.titlePost }}</h2>
+                    </div>
+                    <div class="resume-post-link-date-author">
+                        <div class="resume-post-link-date">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            {{ article.datePost | date('d/m/Y à H:i') }}
+                        </div>
+                        <div class="resume-post-link-author">
+                            <i class="fa-solid fa-user"></i>
+                            {{ article.authorPost }}
+                        </div>
                     </div>
                     <div id="oneArticle-article-chapo">
-                        <p>{{ article.chapoPost }}</p>
+                        <p>{{ article.chapoPost | nl2br }}</p>
                     </div>
                     <div id="oneArticle-article-content">
-                        <p>{{ article.contentPost | raw }}</p>
-                    </div>
-                    <div id="oneArticle-article-author">
-                        <p>Auteur : {{ article.authorPost }}</p>
+                        <p>{{ article.contentPost | nl2br }}</p>
                     </div>
                 </div>
-                <form method="post"
-                      action="/ClementGrenierDesrousseaux_P5_06052022/article/{{ article.idPost }}" id="oneArticle-comment-form">
-                    <h2>Poster un commentaire</h2>
-                    <div class="oneArticle-comment-form-label-input">
-                        <label for="exampleInputEmail1" class="form-label">Nom/Prénom ou Pseudo</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1"
-                               aria-describedby="emailHelp" name="commentAuthor">
-                    </div>
+                <div class="form-post-comment">
+                    <form method="post"
+                          action="/ClementGrenierDesrousseaux_P5_06052022/article/{{ article.idPost }}"
+                          id="oneArticle-comment-form">
+                        <h2><i class="fa-solid fa-comment oneArticle-comment-form-icon"></i>Laisser un commentaire</h2>
+                        <div class="oneArticle-comment-form-label-input">
+                            <label for="exampleInputEmail1" class="form-label">Nom/Prénom ou Pseudo</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" name="commentAuthor">
+                        </div>
 
-                    <div class="oneArticle-comment-form-label-input">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1"
-                               aria-describedby="emailHelp" name="commentEmail">
-                    </div>
+                        <div class="oneArticle-comment-form-label-input">
+                            <label for="exampleInputEmail1" class="form-label">Email</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" name="commentEmail">
+                        </div>
 
-                    <div class="oneArticle-comment-form-label-input">
-                        <label for="exampleInputEmail1" class="form-label">Message</label>
-                        <textarea class="form-control" aria-label="With textarea"
-                                  name="commentContent"></textarea>
-                    </div>
-                    <button type="submit" class="">Publier son commentaire*</button>
-                    <p>*Sous réserve de validation de la part d'un administrateur</p>
-                </form>
+                        <div class="oneArticle-comment-form-label-input">
+                            <label for="exampleInputEmail1" class="form-label">Message</label>
+                            <textarea class="form-control" aria-label="With textarea"
+                                      name="commentContent" cols="100%"></textarea>
+                        </div>
+                        <p>*Sous réserve de validation de la part d'un administrateur</p>
+                        <div class="oneArticle-comment-form-button-display">
+                            <button type="submit" class="oneArticle-comment-form-button"><i
+                                        class="fa-solid fa-paper-plane oneArticle-comment-form-icon"></i>Publier
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
             </div>
             <div id="oneArticle-list-comments">
-                <h2 style="text-align: center">Commentaires</h2>
+                {% if comments | length == 1 %}
+                    <h2><i class="fa-solid fa-comments oneArticle-comment-form-icon"></i> {{ comments | length }}
+                        Commentaire</h2>
+                {% else %}
+                    <h2><i class="fa-solid fa-comments oneArticle-comment-form-icon"></i> {{ comments | length }}
+                        Commentaires</h2>
+                {% endif %}
                 {% for comment in comments %}
-                    <div class="oneArticle-comment">
-                        <div class="oneArticle-comment-author-date">
-                            <h4>{{ comment.commentAuthor }}</h4>
-                            <p>{{ comment.dateComment | date("d/m/Y") }}</p>
+                    <div class="comment-design">
+                        <div class="comment-design-author-date">
+                            <div class="comment-design-author">
+                                <strong>{{ comment.commentAuthor }}</strong>
+                            </div>
+                            <div class="comment-design-date">
+                                commenté le <br>
+                                {{ comment.dateComment | date("d/m/Y, H:i") }}
+                            </div>
                         </div>
-                        <div>
-                            <p>{{ comment.commentContent | raw }}</p>
+                        <div class="comment-design-content">
+                            {{ comment.commentContent | raw }}
                         </div>
                     </div>
                 {% endfor %}

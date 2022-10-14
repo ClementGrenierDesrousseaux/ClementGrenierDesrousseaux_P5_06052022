@@ -88,35 +88,4 @@ class AdminController extends MasterController
             ]);
         }
     }
-
-    public function approuveOrDeleteComment()
-    {
-        $sessionMail = $_SESSION['email'];
-        if (!isset($sessionMail)) {
-            header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
-            exit();
-        } else {
-            $valueSubmit = $_REQUEST['button_submit'];
-            switch ($valueSubmit) {
-                case 'Valider le commentaire':
-                    $comment = new Comment();
-                    $response = $comment->approuveComment($_POST['idComment']);
-                    $comments = $comment->getCommentsNonApprouved();
-                    $this->twig->display('admin/comments.html.twig', [
-                        'response' => $response,
-                        'comments' => $comments
-                    ]);
-                    break;
-                case 'Supprimer le commentaire':
-                    $comment = new Comment();
-                    $response = $comment->deleteComment($_POST['idComment']);
-                    $comments = $comment->getCommentsNonApprouved();
-                    $this->twig->display('admin/comments.html.twig', [
-                        'response' => $response,
-                        'comments' => $comments
-                    ]);
-                    break;
-            }
-        }
-    }
 }

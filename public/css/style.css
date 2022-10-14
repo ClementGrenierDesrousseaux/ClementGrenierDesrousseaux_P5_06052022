@@ -1,3 +1,4 @@
+/*
 body {
     margin: 0;
     padding: 0;
@@ -300,10 +301,11 @@ footer a {
 .form-login-connection button:hover {
     box-shadow: inset 0 -5px 0 lightskyblue;
 }
-
+*/
 
 /* ADMIN */
 
+/*
 html {
     height: 100%;
 }
@@ -390,5 +392,455 @@ tr {
     text-align: center;
 }
 
+*/
 
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /*
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+     */
+}
+
+.admin-body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.body-content {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.header-content {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header {
+    background: #2C3E50;
+    height: 100px;
+    color: white;
+}
+
+.logo-and-title {
+    display: flex;
+    width: 50%;
+}
+
+.logo-and-title img {
+    height: 100px;
+    object-fit: contain
+}
+
+nav {
+    display: flex;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+
+footer {
+    height: 100px;
+    background-color: #ECF0F1;
+}
+
+.footer-content {
+    width: 60%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.display-post {
+    height: 100%;
+    margin-bottom: 70px;
+}
+
+.resume-post {
+    width: 60%;
+    margin: auto;
+    padding-bottom: 10px;
+    padding-top: 30px;
+}
+
+.resume-post:hover {
+    box-shadow: inset 0 -5px 0 lightskyblue;
+}
+
+.resume-post-link {
+    text-decoration: none;
+    color: black;
+}
+
+.resume-post-link h2 {
+    color: #18BC9C;
+}
+
+.resume-post-link-date-author {
+    display: flex;
+    opacity: 50%;
+    margin-bottom: 20px;
+}
+
+.resume-post-link-date {
+    margin-right: 15px;
+}
+
+.newsletter {
+    background-color: #2C3E50;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.newsletter-content {
+    width: 60%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+#newsletter-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#newsletter-form-email {
+    width: 400px;
+    height: 40px;
+    font-size: 25px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+}
+
+#newsletter-form-submit {
+    height: 40px;
+    width: 100px;
+    background-color: lightskyblue;
+    border: none;
+    font-size: 20px;
+}
+
+.oneArticle {
+    width: 60%;
+    height: auto;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.form-post-comment {
+    background-color: #ECF0F1;
+    width: 100%;
+}
+
+#oneArticle-comment-form {
+    padding: 20px;
+}
+
+.oneArticle-comment-form-label-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.oneArticle-comment-form-label-input input {
+    border: 0;
+    height: 30px;
+    font-size: 20px;
+}
+
+.oneArticle-comment-form-label-input textarea {
+    border: 0;
+    height: 100px;
+    font-size: 20px;
+}
+
+.oneArticle-comment-form-button {
+    height: 50px;
+    width: 100px;
+    background-color: #2C3E50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.oneArticle-comment-form-icon {
+    margin-right: 10px;
+}
+
+.oneArticle-comment-form-button-display {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.form-login-connection {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid white;
+    border-radius: 20px;
+    margin: 150px auto;
+    background-color: #ECF0F1;
+}
+
+.form-login-connection form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.form-login-connection-label {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    width: 350px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.form-login-connection-label input {
+    border: 0;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.form-login-connection-label label {
+    padding-left: 10px;
+}
+
+.form-login-connection-label textarea {
+    border: none;
+}
+
+.form-login-connection button {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.form-login-connection button:hover {
+    box-shadow: inset 0 -5px 0 lightskyblue;
+}
+
+.comment-design {
+    width: 100%;
+    display: flex;
+}
+
+.comment-design-author-date {
+    padding-right: 200px;
+}
+
+.comment-design-author {
+    padding-bottom: 5px;
+}
+
+.comment-design-date {
+    padding-bottom: 10px;
+    line-height: 20px;
+}
+
+.base-admin {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.admin-nav {
+    width: 20%;
+    height: 100%;
+    border-right: 5px solid #2C3E50;
+    background-color: #2C3E50;
+    color: white;
+}
+
+.admin-nav {
+    width: 20%;
+    height: 100%;
+    border-right: 5px solid #2C3E50;
+    background-color: #2C3E50;
+    color: white;
+}
+
+.admin-nav li {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.admin-nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.admin-content {
+    width: 80%;
+    height: 100%;
+    padding-left: 50px;
+}
+
+.admin-nav-icon {
+    padding-right: 10px;
+}
+
+.admin-display-article a {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 50px;
+    background-color: #ECF0F1;
+    border-radius: 15px;
+}
+
+.admin-display-article a:hover {
+    box-shadow: inset 0 -5px 0 #2C3E50;
+}
+
+.admin-display-list-articles {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid lightskyblue;
+    height: 100px;
+}
+
+.admin-display-article-content-link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-display-article-content td {
+    text-align: center;
+}
+
+.form-post-comment {
+    margin-top: 20px;
+    background-color: #ECF0F1;
+    width: 90%;
+}
+
+.form-post-comment form {
+    padding: 30px;
+
+}
+
+#oneArticle-comment-form {
+    padding: 20px;
+}
+
+.admin-modify-article-form-label-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.admin-modify-article-form-label-input input {
+    border: 0;
+    height: 30px;
+    font-size: 0.9em;
+}
+
+.admin-modify-article-form-label-input textarea {
+    border: 0;
+    height: auto;
+    font-size: 0.9em;
+}
+
+.admin-modify-article-form-button {
+    height: 50px;
+    width: auto;
+    background-color: #2C3E50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.admin-modify-article-form-icon {
+    margin-right: 10px;
+}
+
+.admin-modify-article-form-button-display {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
 

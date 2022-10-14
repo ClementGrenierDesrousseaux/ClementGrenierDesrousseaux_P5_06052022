@@ -21,6 +21,7 @@
 </head>
 <body>
 
+<!--
 <header>
     <div class="logo-and-title">
         <img src="/ClementGrenierDesrousseaux_P5_06052022/public/asset/img/openclassroom-p5-logo.png" alt="">
@@ -36,20 +37,41 @@
         <a href="/ClementGrenierDesrousseaux_P5_06052022/contact"><h2>Nous contacter</h2></a>
     </nav>
 </header>
+-->
 
-<div>{% block content %} {% endblock %}</div>
+<header>
+    <div class="header-content">
+        <div class="logo-and-title">
+            <img src="/ClementGrenierDesrousseaux_P5_06052022/public/asset/img/openclassroom-p5-logo.png" alt="">
+            <div>
+                <h4>Clément Grenier--Desrousseaux</h4>
+                <p>Développeur, aussi Agile qu'un funambule</p>
+            </div>
+        </div>
+
+        <nav>
+            <a href="/ClementGrenierDesrousseaux_P5_06052022/"><h2>Accueil</h2></a>
+            <a href="/ClementGrenierDesrousseaux_P5_06052022/articles"><h2>Nos articles</h2></a>
+            <a href="/ClementGrenierDesrousseaux_P5_06052022/contact"><h2>Nous contacter</h2></a>
+        </nav>
+    </div>
+</header>
+
+<div class="body-content">{% block content %} {% endblock %}</div>
 
 <footer>
-    <div class="footer-cv">
-        <a href="public/asset/pdf/cv.pdf">CV</a>
-    </div>
-    <div class="footer-social">
-        <i class="fa-brands fa-twitter"></i>
-        <i class="fa-brands fa-linkedin"></i>
-        <i class="fa-brands fa-github"></i>
-    </div>
-    <div class="footer-access-admin">
-        <a href="admin"> Accès Back Office</a>
+    <div class="footer-content">
+        <div class="footer-cv">
+            <a href="public/asset/pdf/cv.pdf">CV</a>
+        </div>
+        <div class="footer-social">
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-github"></i>
+        </div>
+        <div class="footer-access-admin">
+            <a href="admin"> Accès Back Office</a>
+        </div>
     </div>
 </footer>
 

@@ -22,12 +22,18 @@
                     <td>{{ comment.commentContent | raw }}</td>
                     <td>
                         <div class="admin-display-article-content-link">
-                            <a href="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires/{{ article.id }}">Modifier</a>
+                            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires/approuve/{{ comment.idcomment }}" method="post">
+                                <input type="submit" value="Approuver" name="commentApprouved">
+                            </form>
+
                         </div>
                     </td>
                     <td>
                         <div class="admin-display-article-content-link">
-                            <a href="/ClementGrenierDesrousseaux_P5_06052022/admin/article/commentaires/{{ article.id }}">Supprimer</a>
+                            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires/delete/{{ comment.idcomment }}" method="post">
+                                <input type="submit" value="Supprimer" name="commentDeleted"
+                                       class="admin-display-article-content-link">
+                            </form>
                         </div>
                     </td>
                 </tr>

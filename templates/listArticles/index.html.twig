@@ -5,15 +5,28 @@
 {% block content %}
     <div class="display-post">
         {% for article in articles %}
-            <div class="post" id="post{{ article.idPost }}">
-                <a href="/ClementGrenierDesrousseaux_P5_06052022/article/{{ article.idPost }}">
-                    <div class="post-title-date">
-                        <h4>{{ article.titlePost }}</h4>
-                        <p>{{ article.datePost | date('d/m/Y') }}</p>
+            <div class="resume-post" id="post{{ article.idPost }}">
+                <a href="/ClementGrenierDesrousseaux_P5_06052022/article/{{ article.idPost }}" class="resume-post-link">
+                    <h2>
+                        {{ article.titlePost }}
+                    </h2>
+                    <div class="resume-post-link-date-author">
+                        <div class="resume-post-link-date">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            {{ article.datePost | date('d/m/Y') }}
+                        </div>
+                        <div class="resume-post-link-author">
+                            <i class="fa-solid fa-user"></i>
+                            {{ article.authorPost }}
+                        </div>
                     </div>
-                    <p>{{ article.chapoPost }}</p>
+                    <div>
+                        {{ article.chapoPost | nl2br }}
+                    </div>
                 </a>
             </div>
+
+
         {% endfor %}
     </div>
 {% endblock %}

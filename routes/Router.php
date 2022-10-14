@@ -31,7 +31,7 @@ class Router
             }
         }
 
-//        return header('HTTP/1.0 404 Not Found');
+       throw new \Exception("La page est 404");
     }
 
 

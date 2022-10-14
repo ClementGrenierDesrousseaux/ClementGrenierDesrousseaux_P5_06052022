@@ -21,17 +21,15 @@ class AdminArticleModify extends MasterController
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
-
-            $postTitle = $_POST["articleTitle"];
-            $postChapo = $_POST["articleChapo"];
-            $postContent = $_POST["articleContent"];
-
             $articles = new Article();
             $article = $articles->getOneArticle($articleIdentifier);
-
-            if (isset($postTitle) && isset($postChapo) && isset($postContent)) {
+            if (isset($_POST["articleTitle"]) && isset($_POST["articleChapo"]) && isset($_POST["articleContent"])) {
+                $postTitle = $_POST["articleTitle"];
+                $postChapo = $_POST["articleChapo"];
+                $postContent = $_POST["articleContent"];
                 $articles->updateArticle($articleIdentifier, $postTitle, $postChapo, $postContent);
                 $article = $articles->getOneArticle($articleIdentifier);
+                header("Refresh:1");
             }
 
             $this->twig->display('admin/articleModify.html.twig', [

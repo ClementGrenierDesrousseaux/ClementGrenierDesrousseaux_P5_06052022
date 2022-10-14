@@ -48,6 +48,7 @@ class oneArticleController extends MasterController
         $comment = new Comment();
         $comment->createComment($commentAuthor, $commentEmail, $commentContent, $articleIdentifier);
         $comments = $comment->getCommentsApprouved($articleIdentifier);
+        header("Refresh:1");
 
         $this->twig->display('oneArticle/index.html.twig', [
             "articles" => $oneArticle,

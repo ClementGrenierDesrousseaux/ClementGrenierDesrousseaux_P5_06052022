@@ -37,8 +37,15 @@ $router->post('/admin/article/:id', 'App\Controller\Admin\AdminArticleModify@ind
 $router->get('/admin/article/delete/:id', 'App\Controller\Admin\AdminController@adminDeleteOneArticle');
 $router->get('/admin/disconnect', 'App\Controller\Admin\AdminController@disconnectUser');
 $router->get('/admin/commentaires', 'App\Controller\Admin\AdminController@getCommentsNonApprouved');
-$router->post('/admin/commentaires', 'App\Controller\Admin\AdminController@approuveOrDeleteComment');
+$router->post('/admin/commentaires/delete/:id', 'App\Controller\Admin\AdminDeleteComment@deleteComment');
+$router->post('/admin/commentaires/approuve/:id', 'App\Controller\Admin\AdminApprouveComment@approuveComment');
 
 $router->get('/admin/message', 'App\Controller\Admin\AdminContactMessage@index');
 
-$router->run();
+
+
+try {
+    $router->run();
+} catch (\Exception $e) {
+    echo $e->getMessage();
+}
