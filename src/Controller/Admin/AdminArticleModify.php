@@ -16,19 +16,21 @@ class AdminArticleModify extends MasterController
      */
     public function index($articleIdentifier): void
     {
-        $sessionMail = $_SESSION['email'];
-        if (!isset($sessionMail)) {
+        if (!isset($_SESSION['email'])) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
             $articles = new Article();
             $article = $articles->getOneArticle($articleIdentifier);
             if (isset($_POST["articleTitle"]) && isset($_POST["articleChapo"]) && isset($_POST["articleContent"])) {
-                $postTitle = $_POST["articleTitle"];
-                $postChapo = $_POST["articleChapo"];
-                $postContent = $_POST["articleContent"];
+
+                $postTitle = htmlspecialchars($_POST["articleTitle"]);
+                $postChapo = htmlspecialchars($_POST["articleChapo"]);
+                $postContent = htmlspecialchars($_POST["articleContent"]);
+
                 $articles->updateArticle($articleIdentifier, $postTitle, $postChapo, $postContent);
                 $article = $articles->getOneArticle($articleIdentifier);
+
                 header("Refresh:1");
             }
 

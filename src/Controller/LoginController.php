@@ -23,8 +23,8 @@ class LoginController extends MasterController
             exit();
         } else {
             if (isset($_POST['userEmail']) && isset($_POST['userPassword'])) {
-                $userEmail = $_POST['userEmail'];
-                $userPassword = $_POST['userPassword'];
+                $userEmail = htmlspecialchars($_POST['userEmail']);
+                $userPassword = htmlspecialchars($_POST['userPassword']);
                 $user = new User();
                 $isUserIdentified = $user->checkPassword($userEmail, $userPassword);
                 if ($isUserIdentified) {

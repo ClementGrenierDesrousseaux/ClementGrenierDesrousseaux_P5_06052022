@@ -1,20 +1,20 @@
 {
-    "name": "cleme/clement-grenier-desrousseaux_p5_06052022",
-    "autoload": {
-        "psr-4": {
-            "Router\\": "routes/",
-            "App\\" : "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Clément Grenier--Desrousseaux",
-            "email": "clement.grenier.desrousseaux@gmail.com"
-        }
-    ],
-    "require": {
-        "twig/twig": "^3.4",
-      "ext-pdo": "*",
-        "vlucas/phpdotenv": "^5.4"
+  "name": "cleme/clement-grenier-desrousseaux_p5_06052022",
+  "autoload": {
+    "psr-4": {
+      "Router\\": "routes/",
+      "App\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "Clément Grenier--Desrousseaux",
+      "email": "clement.grenier.desrousseaux@gmail.com"
+    }
+  ],
+  "require": {
+    "twig/twig": "^3.4",
+    "ext-pdo": "*",
+    "vlucas/phpdotenv": "^5.4"
+  }
 }

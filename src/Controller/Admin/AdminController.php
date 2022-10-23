@@ -21,8 +21,7 @@ class AdminController extends MasterController
      */
     public function adminIndex()
     {
-        $sessionMail = $_SESSION['email'];
-        if (!isset($sessionMail)) {
+        if (!isset($_SESSION['email'])) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
@@ -44,8 +43,7 @@ class AdminController extends MasterController
      */
     public function adminArticles()
     {
-        $sessionMail = $_SESSION['email'];
-        if (!isset($sessionMail)) {
+        if (!isset($_SESSION['email'])) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
@@ -76,8 +74,7 @@ class AdminController extends MasterController
 
     public function getCommentsNonApprouved()
     {
-        $sessionMail = $_SESSION['email'];
-        if (!isset($sessionMail)) {
+        if (!isset($_SESSION['email'])) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
