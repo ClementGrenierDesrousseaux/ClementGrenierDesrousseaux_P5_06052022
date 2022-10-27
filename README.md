@@ -1,4 +1,4 @@
-# ClementGrenierDesrousseaux_P5_06052022 : Création d'un blog
+# ClementGrenierDesrousseaux_P5_06052022 : Création d'un blog en php
 
 
 ## Décomposition du projet
@@ -18,17 +18,19 @@ Le blog est constitué de 2 parties :
 
 ## Installation du projet
 
-- ``> git clone https://github.com/ClementGrenierDesrousseaux/ClementGrenierDesrousseaux_P5_06052022.git``
-- ``> cd ClementGrenierDesrousseaux_P5_06052022``
-- ``> composer install``
-- Importer le dump bdd_P5 dans votre gestionnaire de base de données (phpMyAdmin par exemple)
-- Modifier les identifiants de connexion dans src/Entity/DatabaseConnector.php
+- > git clone https://github.com/ClementGrenierDesrousseaux/ClementGrenierDesrousseaux_P5_06052022.git
+- > cd ClementGrenierDesrousseaux_P5_06052022
+- > composer install
+- Créer votre base de données
+- Importer le dump bdd_P5 dans votre base de données
+- Dupliquer le fichier .env.example et le renommer en .env
+- Modifier les identifiants de connexion à la base de données dans le fichier .env
 
 ---
 
 ## Ressources
 
-- URL partie Admin : http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin
+- URL Back-Office : /ClementGrenierDesrousseaux_P5_06052022/admin
 - Identifitants Admin : 
 - Mot de passe Admin
 
@@ -40,9 +42,3 @@ Le blog est constitué de 2 parties :
 - Article ID 3 : https://code-garage.fr/blog/qu-est-ce-que-osint-ou-open-source-intelligence/
 - Article ID 3 : https://code-garage.fr/blog/le-premier-jour-en-tant-que-developpeur-junior/
 ---
-
-## Sources
-
-- Article ID 4 : https://alexsoyes.com/trouver-emploi-developpeur/
-- Article ID 3 : https://code-garage.fr/blog/qu-est-ce-que-osint-ou-open-source-intelligence/
-- Article ID 3 : https://code-garage.fr/blog/le-premier-jour-en-tant-que-developpeur-junior/
