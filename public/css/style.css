@@ -739,6 +739,9 @@ tr {
 }
 
 @media screen and (max-width: 768px) {
+
+    /* HEADER */
+
     header {
         height: auto;
     }
@@ -769,6 +772,10 @@ tr {
         font-size: 0.7em;
     }
 
+    /* END HEADER */
+
+    /* FOOTER */
+
     footer {
         height: auto;
     }
@@ -784,5 +791,27 @@ tr {
         margin-top: 10px;
         margin-bottom: 10px;
     }
+
+    /* END FOOTER */
+
+    /* LIST POSTS */
+
+    .resume-post {
+        width: 80%;
+    }
+
+    /* END LIST POSTS */
+
+    /* NEWSLETTER */
+
+    .newsletter {
+        display: none;
+    }
+
+
+
+    /* END NEWSLETTER */
+
+
 
 }
