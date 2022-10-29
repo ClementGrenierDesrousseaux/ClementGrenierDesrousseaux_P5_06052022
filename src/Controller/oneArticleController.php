@@ -39,9 +39,9 @@ class oneArticleController extends MasterController
      */
     public function createComment($articleIdentifier)
     {
-        $commentAuthor = $_POST["commentAuthor"];
-        $commentEmail = $_POST["commentEmail"];
-        $commentContent = $_POST["commentContent"];
+        $commentAuthor = htmlspecialchars($_POST["commentAuthor"]);
+        $commentEmail = htmlspecialchars($_POST["commentEmail"]);
+        $commentContent = htmlspecialchars($_POST["commentContent"]);
 
         $article = new Article();
         $oneArticle = $article->getOneArticle($articleIdentifier);

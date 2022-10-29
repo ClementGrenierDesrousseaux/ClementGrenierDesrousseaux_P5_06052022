@@ -3,9 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use mysqli;
-use PDO;
-
 
 /**
  *

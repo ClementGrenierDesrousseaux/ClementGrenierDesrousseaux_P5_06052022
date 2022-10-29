@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  php-apache-environment:
+    container_name: php-apache
+    image: php:8.1-apache
+    volumes:
+      - ./php/src:/var/www/html/
+    ports:
+      - 8000:80
+
+  db:
+    container_name: db
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: projet
+      MYSQL_USER: clement
+      MYSQL_PASSWORD: root
+    ports:
+      - "8070:80"
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - '8080:80'
+    restart: always
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db

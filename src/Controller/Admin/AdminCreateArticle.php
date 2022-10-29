@@ -14,17 +14,17 @@ class AdminCreateArticle extends \App\Controller\MasterController
      */
     public function index()
     {
-        $sessionMail = $_SESSION['email'];
-        if (!isset($sessionMail)) {
+        if (!isset($_SESSION['email'])) {
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
             exit();
         } else {
-            $postTitle = $_POST["articleTitle"];
-            $postChapo = $_POST["articleChapo"];
-            $postContent = $_POST["articleContent"];
-            $postAuthor = $_POST["articleAuthor"];
+            if (isset($_POST["articleTitle"]) && isset($_POST["articleChapo"]) && isset($_POST["articleContent"]) && isset($_POST["articleAuthor"])) {
 
-            if (isset($postTitle) && isset($postChapo) && isset($postContent) && isset($postAuthor)) {
+                $postTitle = htmlspecialchars($_POST["articleTitle"]);
+                $postChapo = htmlspecialchars($_POST["articleChapo"]);
+                $postContent = htmlspecialchars($_POST["articleContent"]);
+                $postAuthor = htmlspecialchars($_POST["articleAuthor"]);
+
                 $article = new Article();
                 $result = $article->createArticle($postTitle, $postChapo, $postContent, $postAuthor);
 
