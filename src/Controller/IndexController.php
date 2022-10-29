@@ -3,9 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use mysqli;
-use PDO;
-
 
 /**
  *
@@ -25,7 +22,7 @@ class IndexController extends MasterController
     public function index()
     {
         $article = new Article();
-        $articles = $article->getAllArticles();
+        $articles = $article->getFourLastArticles();
         $this->twig->display('index/index.html.twig', [
             "articles" => $articles,
         ]);

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} INSERER LE TITRE {% endblock %}</title>
+
+    {% block stylesheets %} {% endblock %}
+
+    {% block scripts %} {% endblock %}
+    <link rel="stylesheet" href="/ClementGrenierDesrousseaux_P5_06052022/public/css/style.css">
+    <script src="../public/js/script.js"></script>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+          rel="stylesheet"/>
+</head>
+<body>
+{# <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex align-items-center justify-content-center mt-3">
+                <img src="../../public/asset/img/logo_transparent.png" alt="" class="w-25">
+            </div>
+        </div>
+    </div> #}
+
+<body class="admin-body">
+<div class="base-admin">
+    <div class="admin-nav">
+        <h2 style="text-align: center; margin-bottom: 70px;">Interface d'administration</h2>
+        <ul class="">
+            <li class=""><a href="/ClementGrenierDesrousseaux_P5_06052022/admin"
+                            class=""><i
+                            class="fa-solid fa-house mx-2 admin-nav-icon"></i>Accueil</a></li>
+            <li class=""><a
+                        href="/ClementGrenierDesrousseaux_P5_06052022/admin/articles"
+                        class=""><i class="fa-solid fa-newspaper mx-2 admin-nav-icon"></i>Articles
+                </a></li>
+
+            <li class=""><a href="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires"
+                            class=""><i
+                            class="fa-solid fa-comments mx-2 admin-nav-icon"></i>Commentaires</a></li>
+            <li class=""><a
+                        href="/ClementGrenierDesrousseaux_P5_06052022/admin/message"><i
+                            class="fa-solid fa-address-book admin-nav-icon"></i></i>Messages</a></li>
+            <li class=""><a
+                        href="/ClementGrenierDesrousseaux_P5_06052022/admin/disconnect"><i
+                            class="fa-solid fa-right-to-bracket admin-nav-icon"></i>Se déconnecter</a></li>
+        </ul>
+    </div>
+    <div class="admin-content">
+        {% block content %} {% endblock %}
+    </div>
+</div>
+
+</body>
+</body>
+</html>

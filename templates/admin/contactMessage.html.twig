@@ -1,0 +1,26 @@
+{% extends "baseAdmin.html.twig" %}
+
+{% block title %} Page d'accueil {% endblock %}
+
+{% block content %}
+    <div class="admin-display-list-articles">
+        <table class="admin-display-article">
+            <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Date de publication</th>
+                <th>Modifier</th>
+                <th>Date</th>
+            </tr>
+            {% for message in contactMessage %}
+                <tr class="admin-display-article-content">
+                    <td>{{ message.idContactForm }}</td>
+                    <td>{{ message.emailUserContactForm }}</td>
+                    <td>{{ message.nameUserContactForm }}</td>
+                    <td>{{ message.contentUserContactForm }}</td>
+                    <td>{{ message.dateUserContactForm }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

@@ -1,77 +1,43 @@
-{% extends "base.html.twig" %}
+{% extends "baseAdmin.html.twig" %}
 
-{% block title %} Page d'accueil {% endblock %}
+{% block title %} Commentaires {% endblock %}
 
-{% block stylesheets %}
-    <link rel="stylesheet" href="public/css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
-          rel="stylesheet"/>
-{% endblock %}
-
-{% block scripts %}
-    <script src="public/js/script.js"></script>
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-{% endblock %}
-
-{% block body %}
-
-    <div class="container-fluid h-100">
-        <div class="row h-100">
-            <div class="col-lg-2 col-md-3 bg-primary text-light">
-                <h2 class="mt-2 d-flex justify-content-center text-center">Interface d'administration</h2>
-                <ul class="list-group bg-primary mt-5">
-                    <li class="list-group-item bg-primary"><a href="/ClementGrenierDesrousseaux_P5_06052022/admin"
-                                                              class="text-decoration-none text-light"><i
-                                    class="fa-solid fa-house mx-2"></i>Accueil</a></li>
-                    <li class="list-group-item bg-primary"><a
-                                href="/ClementGrenierDesrousseaux_P5_06052022/admin/articles"
-                                class="text-decoration-none text-light"><i class="fa-solid fa-newspaper mx-2"></i>Articles
-                        </a></li>
-
-                    <li class="list-group-item bg-primary"><a href="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires" class="text-decoration-none text-light"><i
-                                    class="fa-solid fa-comments mx-2"></i>Commentaires</a></li>
-                    <li class="list-group-item bg-primary"><a
-                                href="/ClementGrenierDesrousseaux_P5_06052022/admin/disconnect">Se déconnecter</a></li>
-
-                </ul>
-            </div>
-            <div class="col-lg-10 col-md-9">
-                <p>{{ response }}</p>
-
-                    {% for comment in comments %}
-
-                        <div class="row mt-3 mb-3">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <h6>{{ comment.commentAuthor }}</h6>
-                                            <p>{{ comment.dateComment | date("d/m/Y")}}</p>
-                                        </div>
-                                        <div>
-                                            <p>{{ comment.commentContent | raw }}</p>
-                                        </div>
-                                        <div class="col-12">
-                                            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires" method="post">
-                                                <input type="text" value="{{ comment.idcomment }}" name="idComment">
-                                                <input type="submit" value="Valider le commentaire" name="button_submit">
-                                            </form>
-                                            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires" method="post">
-                                                <input type="text" value="{{ comment.idcomment }}" name="idComment">
-                                                <input type="submit" value="Supprimer le commentaire" name="button_submit">
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{% block content %}
+    <p>{{ response }}</p>
+    <div class="admin-display-list-articles">
+        <table class="admin-display-article">
+            <tr>
+                <th>ID</th>
+                <th>Auteur</th>
+                <th>Date de publication</th>
+                <th>Contenu</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+            {% for comment in comments %}
+                <tr class="admin-display-article-content">
+                    <td>{{ comment.idcomment }}</td>
+                    <td>{{ comment.commentAuthor }}</td>
+                    <td>{{ comment.dateComment | date("d/m/Y") }}</td>
+                    <td>{{ comment.commentContent | raw }}</td>
+                    <td>
+                        <div class="admin-display-article-content-link">
+                            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires/approuve/{{ comment.idcomment }}" method="post">
+                                <input type="submit" value="Approuver" name="commentApprouved">
+                            </form>
 
                         </div>
-
-                    {% endfor %}
-
-
-            </div>
-        </div>
+                    </td>
+                    <td>
+                        <div class="admin-display-article-content-link">
+                            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires/delete/{{ comment.idcomment }}" method="post">
+                                <input type="submit" value="Supprimer" name="commentDeleted"
+                                       class="admin-display-article-content-link">
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
-
 {% endblock %}

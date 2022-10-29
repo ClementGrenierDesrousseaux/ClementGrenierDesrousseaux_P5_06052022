@@ -22,34 +22,19 @@ class LoginController extends MasterController
             header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
             exit();
         } else {
-            $test = "A";
-
             if (isset($_POST['userEmail']) && isset($_POST['userPassword'])) {
-
+                $userEmail = htmlspecialchars($_POST['userEmail']);
+                $userPassword = htmlspecialchars($_POST['userPassword']);
                 $user = new User();
-                $userIdentified = $user->checkPassword($_POST['userEmail'], $_POST['userPassword']);
-
-                if ($userIdentified) {
-                    $test = "TRUE";
-                    $_SESSION["email"]=$_POST['userEmail'];
+                $isUserIdentified = $user->checkPassword($userEmail, $userPassword);
+                if ($isUserIdentified) {
+                    $_SESSION["email"] = $_POST['userEmail'];
                     header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
                 } else {
-                    $test = "FALSE";
+                    header("HTTP/1.1 401 Internal Server Error");
                 }
-
-                //$user = new User();
-                //$test = $user->getPassword($_POST['userEmail']);
-
-
-
-
-
-
             }
-            $this->twig->display('login/index.html.twig', [
-                'test' => $test
-            ]);
-
+            $this->twig->display('login/index.html.twig');
         }
     }
 }

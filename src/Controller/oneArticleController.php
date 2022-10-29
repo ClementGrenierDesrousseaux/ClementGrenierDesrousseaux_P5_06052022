@@ -19,29 +19,40 @@ class oneArticleController extends MasterController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index($id)
+    public function index($articleIdentifier)
     {
         $article = new Article();
-        $oneArticle = $article->getOneArticle($id);
+        $oneArticle = $article->getOneArticle($articleIdentifier);
 
         $comment = new Comment();
-        $comments = $comment->getCommentsApprouved();
+        $comments = $comment->getCommentsApprouved($articleIdentifier);
         $this->twig->display('oneArticle/index.html.twig', [
             "articles" => $oneArticle,
             "comments" => $comments
         ]);
     }
 
-    public function createComment($id)
+    /**
+     * @throws \Twig\Error\SyntaxError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\LoaderError
+     */
+    public function createComment($articleIdentifier)
     {
+        $commentAuthor = htmlspecialchars($_POST["commentAuthor"]);
+        $commentEmail = htmlspecialchars($_POST["commentEmail"]);
+        $commentContent = htmlspecialchars($_POST["commentContent"]);
+
         $article = new Article();
-        $oneArticle = $article->getOneArticle($id);
+        $oneArticle = $article->getOneArticle($articleIdentifier);
         $comment = new Comment();
-        $comment->createComment($_POST["commentAuthor"], $_POST["commentEmail"], $_POST["commentContent"], $id);
+        $comment->createComment($commentAuthor, $commentEmail, $commentContent, $articleIdentifier);
+        $comments = $comment->getCommentsApprouved($articleIdentifier);
+        header("Refresh:1");
 
         $this->twig->display('oneArticle/index.html.twig', [
             "articles" => $oneArticle,
-            "comments" => $this->comments
+            "comments" => $comments
         ]);
     }
 }
