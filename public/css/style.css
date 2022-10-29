@@ -50,7 +50,6 @@ header {
 nav {
     display: flex;
     width: 50%;
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -422,8 +421,7 @@ footer {
     font-size: 25px;
     border: none;
     margin: 0;
-    padding: 0;
-    padding-left: 10px;
+    padding: 0 0 0 10px;
 }
 
 #newsletter-form-submit {
@@ -437,8 +435,7 @@ footer {
 .oneArticle {
     width: 60%;
     height: auto;
-    margin: auto;
-    margin-top: 30px;
+    margin: 30px auto auto;
 }
 
 .form-post-comment {
