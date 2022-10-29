@@ -769,4 +769,20 @@ tr {
         font-size: 0.7em;
     }
 
+    footer {
+        height: auto;
+    }
+
+    .footer-content {
+        width: 100%;
+        flex-direction: column;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .footer-content div {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
 }
