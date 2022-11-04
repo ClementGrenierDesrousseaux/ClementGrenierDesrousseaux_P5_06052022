@@ -23,6 +23,10 @@ body {
     height: 100%;
 }
 
+#admin-nav-button-responsive {
+    display: none;
+}
+
 .header-content {
     width: 60%;
     margin: auto;
@@ -251,6 +255,7 @@ nav a {
 
 table {
     border-collapse: collapse;
+    width: 100%;
 }
 
 tr {
@@ -671,7 +676,23 @@ tr {
     justify-content: center;
 }
 
+.display-responsive {
+    display: none;
+}
+
+.display-desktop {
+    display: block;
+}
+
 @media screen and (max-width: 768px) {
+
+    .display-responsive {
+        display: block;
+    }
+
+    .display-desktop {
+        display: none;
+    }
 
     /* HEADER */
     header {
@@ -715,6 +736,7 @@ tr {
     }
 
     #admin-nav-button-responsive {
+        display: block;
         width: 100%;
         height: auto;
         background-color: #2C3E50;
