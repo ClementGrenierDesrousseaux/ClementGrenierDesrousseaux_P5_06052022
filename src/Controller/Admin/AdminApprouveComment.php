@@ -18,7 +18,7 @@ class AdminApprouveComment extends \App\Controller\MasterController
                 if (isset($_POST["commentApprouved"])) {
                     $comment = new Comment();
                     $comment->approuveComment($commentIdentifier);
-                    $this->twig->display('admin/commentApprouve.html.twig');
+                    header("Location: /ClementGrenierDesrousseaux_P5_06052022/admin/commentaires");
                 }
             }
         }

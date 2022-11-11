@@ -17,7 +17,7 @@ class AdminDeleteComment extends MasterController
             if (isset($_POST["commentDeleted"])) {
                 $comment = new Comment();
                 $comment->deleteComment($commentIdentifier);
-                $this->twig->display('admin/commentDeleted.html.twig');
+                header("Location: /ClementGrenierDesrousseaux_P5_06052022/admin/commentaires");
             }
         }
     }
