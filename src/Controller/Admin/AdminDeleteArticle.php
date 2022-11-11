@@ -19,5 +19,6 @@ class AdminDeleteArticle extends \App\Controller\MasterController
 
         $article = new Article();
         $article->deleteArticle($articleIdentifier);
+        header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/admin");
     }
 }
