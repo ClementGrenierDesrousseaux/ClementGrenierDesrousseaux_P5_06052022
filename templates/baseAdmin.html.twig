@@ -11,24 +11,18 @@
 
     {% block scripts %} {% endblock %}
     <link rel="stylesheet" href="/ClementGrenierDesrousseaux_P5_06052022/public/css/style.css">
-    <script src="../public/js/script.js"></script>
+    <script src="/ClementGrenierDesrousseaux_P5_06052022/public/js/script.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
           rel="stylesheet"/>
 </head>
-<body>
-{# <div class="container">
-        <div class="row">
-            <div class="col-12 d-flex align-items-center justify-content-center mt-3">
-                <img src="../../public/asset/img/logo_transparent.png" alt="" class="w-25">
-            </div>
-        </div>
-    </div> #}
+
 
 <body class="admin-body">
 <div class="base-admin">
-    <div class="admin-nav">
-        <h2 style="text-align: center; margin-bottom: 70px;">Interface d'administration</h2>
+    <div id="admin-nav-button-responsive" onclick="navResponsive()">Interface Admin</div>
+    <div class="admin-nav" id="admin-nav" style="display:none;">
+        <h2 style="text-align: center; margin-bottom: 50px;" class="display-desktop">Interface d'administration</h2>
         <ul class="">
             <li class=""><a href="/ClementGrenierDesrousseaux_P5_06052022/admin"
                             class=""><i
@@ -54,6 +48,6 @@
     </div>
 </div>
 
-</body>
+
 </body>
 </html>
