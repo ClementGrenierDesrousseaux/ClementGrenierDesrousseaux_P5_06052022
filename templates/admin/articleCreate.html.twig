@@ -14,24 +14,29 @@
 {% endblock %}
 
 {% block content %}
-    <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/articles/create" method="post">
-        <div class="form-group">
-            <label for="articleTitle">Titre de l'article</label>
-            <input type="text" class="form-control" id="articleTitle" aria-describedby="emailHelp"
-                   name="articleTitle">
-        </div>
-        <div class="form-group">
-            <label for="articleChapo">Chapo de l'article</label>
-            <input type="text" class="form-control" id="articleChapo" name="articleChapo">
-        </div>
-        <div class="form-group">
-            <label for="articleContent">Contenu de l'article</label>
-            <input type="text" class="form-control" id="articleContent" name="articleContent">
-        </div>
-        <div class="form-group">
-            <label for="articleAuthor">Auteur</label>
-            <input type="text" class="form-control" id="articleAuthor" name="articleAuthor">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div class="form-post-comment">
+        <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/articles/create" method="post">
+            <div class="admin-modify-article-form-label-input">
+                <label for="articleTitle">Titre de l'article</label>
+                <input type="text" class="form-control" id="articleTitle" aria-describedby="emailHelp"
+                       name="articleTitle">
+            </div>
+            <div class="admin-modify-article-form-label-input">
+                <label for="articleChapo">Chapo de l'article</label>
+                <input type="text" class="form-control" id="articleChapo" name="articleChapo">
+            </div>
+            <div class="admin-modify-article-form-label-input">
+                <label for="articleContent">Contenu de l'article</label>
+
+                <textarea class="form-control" type="text"
+                          name="articleContent" rows="20"></textarea>
+            </div>
+            <div class="admin-modify-article-form-label-input">
+                <label for="articleAuthor">Auteur</label>
+                <input type="text" class="form-control" id="articleAuthor" name="articleAuthor">
+            </div>
+            <button type="submit" class="admin-modify-article-form-button">Créer l'article</button>
+        </form>
+    </div>
+
 {% endblock %}
