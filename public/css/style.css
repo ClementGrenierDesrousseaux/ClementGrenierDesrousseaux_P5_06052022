@@ -86,13 +86,16 @@ nav a {
 .oneArticle-comment-form-label-input input {
     border: 0;
     height: 30px;
-    font-size: 20px;
+    font-size: 15px;
+    font-family: sans-serif;
 }
 
 .oneArticle-comment-form-label-input textarea {
     border: 0;
     height: 100px;
-    font-size: 20px;
+    font-size: 15px;
+    font-family: sans-serif;
+    padding-top: 10px;
 }
 
 .oneArticle-comment-form-button {
@@ -451,29 +454,6 @@ footer {
 
 #oneArticle-comment-form {
     padding: 20px;
-}
-
-.oneArticle-comment-form-label-input {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    color: black;
-    padding: 5px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
-.oneArticle-comment-form-label-input input {
-    border: 0;
-    height: 30px;
-    font-size: 20px;
-}
-
-.oneArticle-comment-form-label-input textarea {
-    border: 0;
-    height: 100px;
-    font-size: 20px;
 }
 
 .oneArticle-comment-form-button {
