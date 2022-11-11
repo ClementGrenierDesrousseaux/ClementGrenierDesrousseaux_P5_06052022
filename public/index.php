@@ -28,7 +28,7 @@ $router->get('/register', 'App\Controller\RegisterController@index');
 $router->post('/register', 'App\Controller\RegisterController@index');
 
 /* URL ADMIN */
-$router->get('/admin', 'App\Controller\Admin\AdminController@adminIndex');
+$router->get('/admin', 'App\Controller\Admin\AdminController@adminArticles');
 
 $router->get('/admin/articles', 'App\Controller\Admin\AdminController@adminArticles');
 
