@@ -86,13 +86,16 @@ nav a {
 .oneArticle-comment-form-label-input input {
     border: 0;
     height: 30px;
-    font-size: 20px;
+    font-size: 15px;
+    font-family: sans-serif;
 }
 
 .oneArticle-comment-form-label-input textarea {
     border: 0;
     height: 100px;
-    font-size: 20px;
+    font-size: 15px;
+    font-family: sans-serif;
+    padding-top: 10px;
 }
 
 .oneArticle-comment-form-button {
@@ -152,6 +155,7 @@ nav a {
     font-size: 15px;
     border-radius: 10px;
     padding-left: 10px;
+    font-family: sans-serif;
 }
 
 .form-login-connection-label label {
@@ -160,6 +164,11 @@ nav a {
 
 .form-login-connection-label textarea {
     border: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 15px;
+    font-family: sans-serif;
 }
 
 .form-login-connection button {
@@ -447,29 +456,6 @@ footer {
     padding: 20px;
 }
 
-.oneArticle-comment-form-label-input {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    color: black;
-    padding: 5px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
-.oneArticle-comment-form-label-input input {
-    border: 0;
-    height: 30px;
-    font-size: 20px;
-}
-
-.oneArticle-comment-form-label-input textarea {
-    border: 0;
-    height: 100px;
-    font-size: 20px;
-}
-
 .oneArticle-comment-form-button {
     height: 50px;
     width: 100px;
@@ -519,14 +505,6 @@ footer {
     width: 350px;
     margin-bottom: 20px;
     border-radius: 10px;
-}
-
-.form-login-connection-label input {
-    border: 0;
-    height: 40px;
-    font-size: 15px;
-    border-radius: 10px;
-    padding-left: 10px;
 }
 
 .form-login-connection-label label {
