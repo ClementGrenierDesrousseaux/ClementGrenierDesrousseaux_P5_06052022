@@ -208,6 +208,8 @@ nav a {
     border-right: 5px solid #2C3E50;
     background-color: #2C3E50;
     color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 .admin-nav li {
@@ -218,6 +220,7 @@ nav a {
 .admin-nav a {
     text-decoration: none;
     color: white;
+    display: flex;
 }
 
 .admin-content {
@@ -729,6 +732,17 @@ tr {
     .admin-nav {
         width: 100%;
         border: none;
+        height: auto;
+    }
+
+    .admin-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+
+    .admin-nav li {
+        margin-bottom: 10px;
     }
 
     #admin-nav-button-responsive {
@@ -741,6 +755,8 @@ tr {
         font-size: 1.3em;
         color: white;
         cursor: pointer;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     .admin-content {
