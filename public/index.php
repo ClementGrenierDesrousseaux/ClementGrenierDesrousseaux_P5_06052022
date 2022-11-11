@@ -28,9 +28,9 @@ $router->get('/register', 'App\Controller\RegisterController@index');
 $router->post('/register', 'App\Controller\RegisterController@index');
 
 /* URL ADMIN */
-$router->get('/admin', 'App\Controller\Admin\AdminController@adminArticles');
+$router->get('/admin', 'App\Controller\Admin\AdminArticles@index');
 
-$router->get('/admin/articles', 'App\Controller\Admin\AdminController@adminArticles');
+$router->get('/admin/articles', 'App\Controller\Admin\AdminArticles@index');
 
 $router->get('/admin/articles/create', 'App\Controller\Admin\AdminCreateArticle@index');
 $router->post('/admin/articles/create', 'App\Controller\Admin\AdminCreateArticle@index');
@@ -38,9 +38,9 @@ $router->post('/admin/articles/create', 'App\Controller\Admin\AdminCreateArticle
 $router->get('/admin/article/:id', 'App\Controller\Admin\AdminArticleModify@index');
 $router->post('/admin/article/:id', 'App\Controller\Admin\AdminArticleModify@index');
 
-$router->get('/admin/article/delete/:id', 'App\Controller\Admin\AdminController@adminDeleteOneArticle');
-$router->get('/admin/disconnect', 'App\Controller\Admin\AdminController@disconnectUser');
-$router->get('/admin/commentaires', 'App\Controller\Admin\AdminController@getCommentsNonApprouved');
+$router->get('/admin/article/delete/:id', 'App\Controller\Admin\AdminDeleteArticle@index');
+$router->get('/admin/disconnect', 'App\Controller\Admin\AdminDisconnectUser@index');
+$router->get('/admin/commentaires', 'App\Controller\Admin\AdminNonApprouvedComments@index');
 $router->post('/admin/commentaires/delete/:id', 'App\Controller\Admin\AdminDeleteComment@deleteComment');
 $router->post('/admin/commentaires/approuve/:id', 'App\Controller\Admin\AdminApprouveComment@approuveComment');
 
