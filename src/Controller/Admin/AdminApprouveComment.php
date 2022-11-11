@@ -15,7 +15,7 @@ class AdminApprouveComment extends \App\Controller\MasterController
                 header("Location: http://localhost/ClementGrenierDesrousseaux_P5_06052022/login");
                 exit();
             } else {
-                if (isset($_POST["commentDeleted"])) {
+                if (isset($_POST["commentApprouved"])) {
                     $comment = new Comment();
                     $comment->approuveComment($commentIdentifier);
                     $this->twig->display('admin/commentApprouve.html.twig');

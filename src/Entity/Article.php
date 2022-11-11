@@ -100,5 +100,10 @@ class Article
         $sql = "DELETE FROM post WHERE idPost=?";
         $stmt = $this->Database->prepare($sql);
         $stmt->execute([$articleIdentifier]);
+
+        $sql = "DELETE FROM comment WHERE idPost=?";
+        $stmt = $this->Database->prepare($sql);
+        $stmt->execute([$articleIdentifier]);
+
     }
 }
