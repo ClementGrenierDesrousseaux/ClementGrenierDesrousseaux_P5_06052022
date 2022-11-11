@@ -9,8 +9,8 @@
             <tr>
                 <th>ID</th>
                 <th>Auteur</th>
-                <th>Date de publication</th>
-                <th>Contenu</th>
+                <th class="display-desktop">>Date de publication</th>
+                <th class="display-desktop">>Contenu</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
@@ -18,11 +18,12 @@
                 <tr class="admin-display-article-content">
                     <td>{{ comment.idcomment }}</td>
                     <td>{{ comment.commentAuthor }}</td>
-                    <td>{{ comment.dateComment | date("d/m/Y") }}</td>
-                    <td>{{ comment.commentContent | raw }}</td>
+                    <td class="display-desktop">>{{ comment.dateComment | date("d/m/Y") }}</td>
+                    <td class="display-desktop">>{{ comment.commentContent | raw }}</td>
                     <td>
                         <div class="admin-display-article-content-link">
-                            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires/approuve/{{ comment.idcomment }}" method="post">
+                            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires/approuve/{{ comment.idcomment }}"
+                                  method="post">
                                 <input type="submit" value="Approuver" name="commentApprouved">
                             </form>
 
@@ -30,7 +31,8 @@
                     </td>
                     <td>
                         <div class="admin-display-article-content-link">
-                            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires/delete/{{ comment.idcomment }}" method="post">
+                            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires/delete/{{ comment.idcomment }}"
+                                  method="post">
                                 <input type="submit" value="Supprimer" name="commentDeleted"
                                        class="admin-display-article-content-link">
                             </form>

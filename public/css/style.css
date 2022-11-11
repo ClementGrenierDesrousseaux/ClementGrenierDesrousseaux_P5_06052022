@@ -680,10 +680,6 @@ tr {
     display: none;
 }
 
-.display-desktop {
-    display: block;
-}
-
 @media screen and (max-width: 768px) {
 
     .display-responsive {
@@ -749,6 +745,8 @@ tr {
 
     .admin-content {
         padding: 0;
+        width: 95%;
+        margin: 0 auto;
     }
 
     /* FOOTER */
@@ -810,5 +808,9 @@ tr {
     }
 
     /* END FORM LOGIN AND CONTACT */
+
+    .form-post-comment {
+        margin: auto;
+    }
 
 }
