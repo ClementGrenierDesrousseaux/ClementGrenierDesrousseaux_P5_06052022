@@ -365,6 +365,28 @@ footer {
     color: black;
 }
 
+.footer-cv {
+    width: 100%;
+}
+
+.footer-social {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-social a {
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.footer-access-admin {
+    width: 100%;
+    text-align: end;
+}
+
 
 .display-post {
     height: 100%;
