@@ -11,7 +11,7 @@
             <div id="oneArticle-article-form-comment">
                 <div id="oneArticle-article">
                     <div id="oneArticle-article-title-date">
-                        <h2>{{ article.titlePost }}</h2>
+                        <h2>{{ article.titlePost | raw }}</h2>
                     </div>
                     <div class="resume-post-link-date-author">
                         <div class="resume-post-link-date">
@@ -27,7 +27,7 @@
                         <p>{{ article.chapoPost | nl2br }}</p>
                     </div>
                     <div id="oneArticle-article-content">
-                        <p>{{ article.contentPost | nl2br }}</p>
+                        <p>{{ article.contentPost | raw }}</p>
                     </div>
                 </div>
                 <div class="form-post-comment">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="comment-design-content">
-                            {{ comment.commentContent | raw }}
+                           {{ comment.commentContent | escape }}
                         </div>
                     </div>
                 {% endfor %}

@@ -15,6 +15,13 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
           rel="stylesheet"/>
+
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet'
+          type='text/css'/>
+    <script type='text/javascript'
+            src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
+
+
 </head>
 
 
@@ -26,21 +33,30 @@
         <ul class="">
             <li class=""><a href="/ClementGrenierDesrousseaux_P5_06052022/admin"
                             class=""><i
-                            class="fa-solid fa-house mx-2 admin-nav-icon"></i><div class="display-desktop">Accueil</div></a></li>
+                            class="fa-solid fa-house mx-2 admin-nav-icon"></i>
+                    <div class="display-desktop">Accueil</div>
+                </a></li>
             <li class=""><a
                         href="/ClementGrenierDesrousseaux_P5_06052022/admin/articles"
-                        class=""><i class="fa-solid fa-newspaper mx-2 admin-nav-icon"></i><div class="display-desktop">Articles</div>
+                        class=""><i class="fa-solid fa-newspaper mx-2 admin-nav-icon"></i>
+                    <div class="display-desktop">Articles</div>
                 </a></li>
 
             <li class=""><a href="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires"
                             class=""><i
-                            class="fa-solid fa-comments mx-2 admin-nav-icon"></i><div class="display-desktop">Commentaires</div></a></li>
+                            class="fa-solid fa-comments mx-2 admin-nav-icon"></i>
+                    <div class="display-desktop">Commentaires</div>
+                </a></li>
             <li class=""><a
                         href="/ClementGrenierDesrousseaux_P5_06052022/admin/message"><i
-                            class="fa-solid fa-address-book admin-nav-icon"></i></i><div class="display-desktop">Messages</div></a></li>
+                            class="fa-solid fa-address-book admin-nav-icon"></i></i>
+                    <div class="display-desktop">Messages</div>
+                </a></li>
             <li class=""><a
                         href="/ClementGrenierDesrousseaux_P5_06052022/admin/disconnect"><i
-                            class="fa-solid fa-right-to-bracket admin-nav-icon"></i><div class="display-desktop">Se déconnecter</div></a></li>
+                            class="fa-solid fa-right-to-bracket admin-nav-icon"></i>
+                    <div class="display-desktop">Se déconnecter</div>
+                </a></li>
         </ul>
     </div>
     <div class="admin-content">
@@ -48,6 +64,10 @@
     </div>
 </div>
 
+
+<script>
+    var editor = new FroalaEditor('#example');
+</script>
 
 </body>
 </html>

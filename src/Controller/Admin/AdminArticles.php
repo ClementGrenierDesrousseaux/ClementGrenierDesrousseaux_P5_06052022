@@ -22,6 +22,8 @@ class AdminArticles extends \App\Controller\MasterController
 
         $article = new Article();
         $articles = $article->getAllArticles();
+
+
         $this->twig->display('admin/articles.html.twig', [
             'articles' => $articles
         ]);

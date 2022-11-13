@@ -6,19 +6,19 @@
 
     {% for article in articles %}
         <div class="form-post-comment">
-            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/article/{{ article.idPost }}" method="post">
+            <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/article/{{ article.idPost | raw }}" method="post">
                 <div class="admin-modify-article-form-label-input">
                     <label for="title" class="form-label">Titre</label>
-                    <input class="form-control" type="text" value="{{ article.titlePost }}" name="articleTitle">
+                    <input class="form-control" type="text" value="{{ article.titlePost | raw }}" name="articleTitle">
                 </div>
                 <div class="admin-modify-article-form-label-input">
                     <label for="title" class="form-label">Chapo</label>
-                    <textarea class="form-control" type="text" name="articleChapo">{{ article.chapoPost }}</textarea>
+                    <textarea class="form-control" type="text" name="articleChapo">{{ article.chapoPost | raw }}</textarea>
                 </div>
                 <div class="admin-modify-article-form-label-input">
                     <label for="title" class="form-label">Description</label>
                     <textarea class="form-control" type="text"
-                              name="articleContent" rows="20">{{ article.contentPost }}</textarea>
+                              name="articleContent" rows="20">{{ article.contentPost | raw }}</textarea>
                 </div>
                 <input type="submit" class="admin-modify-article-form-button" value="Valider les modifications" class="">
             </form>

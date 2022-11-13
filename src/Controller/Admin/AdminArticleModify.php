@@ -31,6 +31,8 @@ class AdminArticleModify extends MasterController
                 $articles->updateArticle($articleIdentifier, $postTitle, $postChapo, $postContent);
                 $article = $articles->getOneArticle($articleIdentifier);
 
+
+
                 header("Refresh:1");
             }
 

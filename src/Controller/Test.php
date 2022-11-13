@@ -41,12 +41,25 @@ class Test extends MasterController
                 "content" => "Content 7"
             ]
         ];
+//        echo "<pre>";
+//        print_r($articles);
+//        echo "</pre>";
+
+        $testtest = [];
+
+        foreach ($articles as $te) {
+            foreach ($te as $key => &$value) {
+                $value = htmlspecialchars_decode($value);
+                echo $value;
+            }
+        }
 
 
-        echo '<pre>';
-        print_r($articles);
-        echo '</pre>';
+        echo $testtest[0][3];
 
+//        echo "<pre>";
+//        print_r($testtest);
+//        echo "</pre>";
     }
 }
 
