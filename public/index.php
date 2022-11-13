@@ -14,6 +14,7 @@ $router = new Router($_GET['url']);
 
 /* URL FRONT */
 $router->get('/', 'App\Controller\IndexController@index');
+$router->get('/test', 'App\Controller\Test@index');
 $router->get('/articles', 'App\Controller\listArticlesController@index');
 $router->get('/article/:id', 'App\Controller\oneArticleController@index');
 $router->post('/article/:id', 'App\Controller\oneArticleController@createComment');
