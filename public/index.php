@@ -24,8 +24,8 @@ $router->post('/contact', 'App\Controller\contactForm@index');
 /* URL OF LOGIN / REGISTER */
 $router->get('/login', 'App\Controller\LoginController@index');
 $router->post('/login', 'App\Controller\LoginController@index');
-$router->get('/register', 'App\Controller\RegisterController@index');
-$router->post('/register', 'App\Controller\RegisterController@index');
+//$router->get('/register', 'App\Controller\RegisterController@index');
+//$router->post('/register', 'App\Controller\RegisterController@index');
 
 /* URL ADMIN */
 $router->get('/admin', 'App\Controller\Admin\AdminArticles@index');
