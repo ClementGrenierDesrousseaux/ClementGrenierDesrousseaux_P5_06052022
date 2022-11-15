@@ -31,8 +31,8 @@ Le blog est constitué de 2 parties :
 ## Ressources
 
 - URL Back-Office : /ClementGrenierDesrousseaux_P5_06052022/admin
-- Identifitants Admin : 
-- Mot de passe Admin
+- Identifitants Admin : test@test.test
+- Mot de passe Admin : test
 
 ---
 
