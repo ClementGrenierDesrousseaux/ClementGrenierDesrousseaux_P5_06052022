@@ -13,9 +13,9 @@
             </tr>
             {% for message in contactMessage %}
                 <tr class="admin-display-article-content">
-                    <td>{{ message.emailUserContactForm }}</td>
-                    <td>{{ message.nameUserContactForm }}</td>
-                    <td class="display-desktop">>{{ message.contentUserContactForm }}</td>
+                    <td>{{ message.emailUserContactForm | raw }}</td>
+                    <td>{{ message.nameUserContactForm | raw }}</td>
+                    <td class="display-desktop">>{{ message.contentUserContactForm | raw }}</td>
                     <td>{{ message.dateUserContactForm | date("d/m/Y")}}</td>
                 </tr>
             {% endfor %}

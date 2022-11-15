@@ -16,8 +16,8 @@
             </tr>
             {% for comment in comments %}
                 <tr class="admin-display-article-content">
-                    <td>{{ comment.idcomment }}</td>
-                    <td>{{ comment.commentAuthor }}</td>
+                    <td>{{ comment.idcomment | raw }}</td>
+                    <td>{{ comment.commentAuthor | raw }}</td>
                     <td class="display-desktop">{{ comment.dateComment | date("d/m/Y") }}</td>
                     <td class="display-desktop">{{ comment.commentContent | raw }}</td>
                     <td>
