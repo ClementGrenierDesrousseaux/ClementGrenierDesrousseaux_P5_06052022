@@ -8,14 +8,14 @@
             <tr>
                 <th>Email</th>
                 <th>Nom/Prénom</th>
-                <th class="display-desktop">>Contenu</th>
+                <th class="display-desktop">Contenu</th>
                 <th>Date</th>
             </tr>
             {% for message in contactMessage %}
                 <tr class="admin-display-article-content">
-                    <td>{{ message.emailUserContactForm | raw }}</td>
-                    <td>{{ message.nameUserContactForm | raw }}</td>
-                    <td class="display-desktop">>{{ message.contentUserContactForm | raw }}</td>
+                    <td>{{ message.emailUserContactForm | raw | nl2br }}</td>
+                    <td>{{ message.nameUserContactForm | raw | nl2br }}</td>
+                    <td class="display-desktop">{{ message.contentUserContactForm | raw | nl2br }}</td>
                     <td>{{ message.dateUserContactForm | date("d/m/Y")}}</td>
                 </tr>
             {% endfor %}

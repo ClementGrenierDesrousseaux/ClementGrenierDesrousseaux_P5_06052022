@@ -38,7 +38,9 @@ Le blog est constitué de 2 parties :
 
 ## Sources
 
-- Article ID 4 : https://alexsoyes.com/trouver-emploi-developpeur/
-- Article ID 3 : https://code-garage.fr/blog/qu-est-ce-que-osint-ou-open-source-intelligence/
-- Article ID 3 : https://code-garage.fr/blog/le-premier-jour-en-tant-que-developpeur-junior/
+- Article ID 17 : https://alexsoyes.com/trouver-emploi-developpeur/
+- Article ID 18 : https://code-garage.fr/blog/le-premier-jour-en-tant-que-developpeur-junior/
+- Article ID 19 : https://code-garage.fr/blog/qu-est-ce-que-osint-ou-open-source-intelligence/
+- Article ID 20 : https://alexsoyes.com/blague-developpeur/
+
 ---

@@ -11,7 +11,7 @@
             <div id="oneArticle-article-form-comment">
                 <div id="oneArticle-article">
                     <div id="oneArticle-article-title-date">
-                        <h2>{{ article.titlePost }}</h2>
+                        <h2>{{ article.titlePost | raw | nl2br }}</h2>
                     </div>
                     <div class="resume-post-link-date-author">
                         <div class="resume-post-link-date">
@@ -20,14 +20,14 @@
                         </div>
                         <div class="resume-post-link-author">
                             <i class="fa-solid fa-user"></i>
-                            {{ article.authorPost | raw }}
+                            {{ article.authorPost | raw | nl2br }}
                         </div>
                     </div>
                     <div id="oneArticle-article-chapo">
-                        <p>{{ article.chapoPost | raw }}</p>
+                        <p>{{ article.chapoPost | raw | nl2br }}</p>
                     </div>
                     <div id="oneArticle-article-content">
-                        <p>{{ article.contentPost | raw }}</p>
+                        <p>{{ article.contentPost | raw | nl2br }}</p>
                     </div>
                 </div>
                 <div class="form-post-comment">
@@ -74,7 +74,7 @@
                     <div class="comment-design">
                         <div class="comment-design-author-date">
                             <div class="comment-design-author">
-                                <strong>{{ comment.commentAuthor | raw }}</strong>
+                                <strong>{{ comment.commentAuthor | raw | nl2br }}</strong>
                             </div>
                             <div class="comment-design-date">
                                 commenté le <br>
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="comment-design-content">
-                            {{ comment.commentContent | raw }}
+                            {{ comment.commentContent | raw | nl2br }}
                         </div>
                     </div>
                 {% endfor %}

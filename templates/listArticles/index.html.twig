@@ -8,7 +8,7 @@
             <div class="resume-post" id="post{{ article.idPost }}">
                 <a href="/ClementGrenierDesrousseaux_P5_06052022/article/{{ article.idPost }}" class="resume-post-link">
                     <h2>
-                        {{ article.titlePost | raw }}
+                        {{ article.titlePost | raw | nl2br }}
                     </h2>
                     <div class="resume-post-link-date-author">
                         <div class="resume-post-link-date">
@@ -17,11 +17,11 @@
                         </div>
                         <div class="resume-post-link-author">
                             <i class="fa-solid fa-user"></i>
-                            {{ article.authorPost | raw }}
+                            {{ article.authorPost | raw | nl2br }}
                         </div>
                     </div>
                     <div>
-                        {{ article.chapoPost | raw }}
+                        {{ article.chapoPost | raw | nl2br }}
                     </div>
                 </a>
             </div>

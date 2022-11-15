@@ -16,10 +16,10 @@
             </tr>
             {% for comment in comments %}
                 <tr class="admin-display-article-content">
-                    <td>{{ comment.idcomment | raw }}</td>
-                    <td>{{ comment.commentAuthor | raw }}</td>
+                    <td>{{ comment.idcomment | raw | nl2br }}</td>
+                    <td>{{ comment.commentAuthor | raw | nl2br }}</td>
                     <td class="display-desktop">{{ comment.dateComment | date("d/m/Y") }}</td>
-                    <td class="display-desktop">{{ comment.commentContent | raw }}</td>
+                    <td class="display-desktop">{{ comment.commentContent | raw | nl2br }}</td>
                     <td>
                         <div class="admin-display-article-content-link">
                             <form action="/ClementGrenierDesrousseaux_P5_06052022/admin/commentaires/approuve/{{ comment.idcomment }}"
